@@ -32,7 +32,7 @@ function Login() {
         <i class="bi bi-hospital-fill"></i>
           <p>Classroom</p>
         </div>
-        <div className=" ms-3 d-flex flex-column justify-content-center align-items-center">
+        <div onClick={()=>navigator('/absent')} className=" ms-3 d-flex flex-column justify-content-center align-items-center">
         <i class="bi bi-calendar-check-fill"></i>
           <p>Absent</p>
         </div>

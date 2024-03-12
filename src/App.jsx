@@ -3,6 +3,7 @@ import {Routes ,BrowserRouter,Route} from 'react-router-dom'
 import Login from "./Pages/Login/LoginPage.jsx"
 import Teachers from "./Pages/Teachers/TeachersPage.jsx"
 import Classroom from "./Pages/Classroom/Classroom.jsx"
+import AbsentMarkdown from "./Pages/Absent/AbsentMarkdown.jsx"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <Route path={'/classroom'} element={<Classroom />} />
             <Route path={'/classroom/:sem'} element={<Classroom />} />
             <Route path={'/classroom/:sem/:sub'} element={<Classroom />} />
+            <Route path={'/absent'} element={<AbsentMarkdown />} />
         </Routes>
     </BrowserRouter>
     </>
