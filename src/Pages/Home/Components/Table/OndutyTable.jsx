@@ -2,25 +2,37 @@ import React from 'react'
 import { getStudentOnDuty } from '../../../../Api/StudentApi'
 
 function OndutyTable() {
+    const [onDutyList,setonDutyList]=React.useState([])
+
+    React.useEffect(
+        ()=>{
+            getStudentOnDuty(localStorage.getItem('currentUser')).then(
+                res=>setonDutyList(res.data)
+            )
+        },[]
+    )
+
+    const rows=onDutyList.map((day)=>{
+        return(
+            <tr key={day.id} >
+                    <td>{day.id}</td>
+                    <td>{day.date}</td>
+            </tr>
+        )
+    })
+
   return (
     <>
     <div className="tab-pane fade" id="onDuty">
         <table className='table table-bordered mt-2'>
             <thead>
                 <tr className='table-dark'>
+                    <td>Id</td>
                     <td>Date</td>
-                    <td>Hours</td>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>05/01/23</td>
-                    <td>Full-Day</td>
-                </tr>
-                <tr>
-                    <td>15/03/23</td>
-                    <td>1-6 Hour</td>
-                </tr>
+                {rows}
             </tbody>
         </table>
     </div>

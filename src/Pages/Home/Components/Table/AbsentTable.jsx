@@ -5,7 +5,7 @@ function AbsentTable(props) {
 
     const [absentList,setAbsentList]=React.useState([])
 
-    React.useState(
+    React.useEffect(
         ()=>{
             getStudentAbsent(localStorage.getItem('currentUser')).then(
                 res=>setAbsentList(res.data)

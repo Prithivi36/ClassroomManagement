@@ -8,7 +8,6 @@ import PersonalDetail from './Table/PersonalDetail'
 
 function AllDetails() {
     const [selectedStudent,setSelectedStudent]=React.useState({})
-    
     React.useEffect(
         ()=>{
             getStudent(localStorage.getItem('currentUser')).then(
@@ -25,7 +24,7 @@ function AllDetails() {
         <button data-bs-toggle='modal' data-bs-target='#leaveModal' className="btn btn-sm ms-2 btn-primary">+ Leave</button>
         <button data-bs-toggle='modal' data-bs-target='#AchieveAdd'  className="btn btn-sm ms-2 btn-success">+ Achievements</button>
         <button data-bs-toggle='modal' data-bs-target='#SkillsAdd' className="btn btn-sm ms-2 btn-warning">+ Skills</button>
-        <ConcernModal />
+        <ConcernModal merit={selectedStudent.studentConcern}  />
         <LeaveModal />
         <AchievementAddModal />
         <SkillsAddModal />

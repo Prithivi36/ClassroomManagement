@@ -24,7 +24,7 @@ function ConcernModal(props) {
                     <div className="tab-content" id="myTabContent">
                         <AbsentTable  />
                         <OndutyTable />
-                        <IssuesTable />
+                        <IssuesTable count={props.merit} />
                     </div>
                 </div>
             </div>
