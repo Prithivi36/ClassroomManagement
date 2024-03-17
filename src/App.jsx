@@ -4,12 +4,14 @@ import Login from "./Pages/Login/LoginPage.jsx"
 import Teachers from "./Pages/Teachers/TeachersPage.jsx"
 import Classroom from "./Pages/Classroom/Classroom.jsx"
 import AbsentMarkdown from "./Pages/Absent/AbsentMarkdown.jsx"
+import Navbar from "./Common/Navbar.jsx"
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
+          <Navbar />
         <Routes>
             <Route path='/:role/:id' element={<Home />} />
             <Route path='/' element={<Login />} />

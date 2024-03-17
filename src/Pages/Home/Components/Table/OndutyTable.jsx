@@ -1,12 +1,17 @@
 import React from 'react'
 import { getStudentOnDuty } from '../../../../Api/StudentApi'
+import { useParams } from 'react-router-dom'
+
 
 function OndutyTable() {
     const [onDutyList,setonDutyList]=React.useState([])
 
+    const {id}=useParams()
+
+
     React.useEffect(
         ()=>{
-            getStudentOnDuty(localStorage.getItem('currentUser')).then(
+            getStudentOnDuty(id).then(
                 res=>setonDutyList(res.data)
             )
         },[]

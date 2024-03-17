@@ -1,13 +1,14 @@
 import React from 'react'
 import { getStudentAbsent } from '../../../../Api/StudentApi'
+import { useParams } from 'react-router-dom'
 
 function AbsentTable(props) {
 
     const [absentList,setAbsentList]=React.useState([])
-
+    const {id}=useParams()
     React.useEffect(
         ()=>{
-            getStudentAbsent(localStorage.getItem('currentUser')).then(
+            getStudentAbsent(id).then(
                 res=>setAbsentList(res.data)
             )
         },[]

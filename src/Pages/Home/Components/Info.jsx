@@ -4,13 +4,14 @@ import RegularInfoTable from './Table/RegularInfoTable'
 import SkillsModal from './Modals/SkillsModal'
 import AchievementsModal from './Modals/AchievementsModal'
 import { getStudent } from '../../../Api/StudentApi'
+import { useParams } from 'react-router-dom'
 
 function Info() {
   const [selectedStudent,setSelectedStudent]=React.useState({})
-    
+    const {id}=useParams()
   React.useEffect(
       ()=>{
-          getStudent(localStorage.getItem('currentUser')).then(
+          getStudent(id).then(
               res=>setSelectedStudent(res.data)
           )
       }

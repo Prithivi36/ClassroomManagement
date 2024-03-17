@@ -5,12 +5,15 @@ import AchievementAddModal from './Modals/AchievementAddModal'
 import SkillsAddModal from './Modals/SkillsAddModal'
 import { getStudent } from '../../../Api/StudentApi'
 import PersonalDetail from './Table/PersonalDetail'
+import { useParams } from 'react-router-dom'
+
 
 function AllDetails() {
     const [selectedStudent,setSelectedStudent]=React.useState({})
+    const {id}=useParams()
     React.useEffect(
         ()=>{
-            getStudent(localStorage.getItem('currentUser')).then(
+            getStudent(id).then(
                 res=>setSelectedStudent(res.data)
             )
         }

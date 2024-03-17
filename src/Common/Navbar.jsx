@@ -2,7 +2,6 @@ import React from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
 
 function Navbar() {
-  const {role}=useParams()
   const navigator=useNavigate()
 
   function logOut(){
@@ -13,9 +12,9 @@ function Navbar() {
   return (
     <>
     <div className="d-flex bg-dark px-3 justify-content-between">
-      <h1 className='bg-dark ps-2 d-inline text-light py-2 text-center'>{role}</h1>
+      <h3 className='bg-dark ps-2 d-inline text-light fw-bolder py-2 text-center'>VCR</h3>
       <div className="align-items-center d-flex">
-        <button onClick={logOut} className="btn btn-light">Logout</button>
+        <button onClick={logOut} className="btn btn-sm btn-light">Logout</button>
       </div>
     </div>
     </>
