@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Baseurl="http://localhost:8080/"
+const Baseurl="http://192.168.1.3:8080/"
 
 export function getAllStudent(){
     return axios.get(Baseurl+'student/getAll')
@@ -14,4 +14,7 @@ export function getStudentAbsent(number){
 }
 export function getStudentOnDuty(number){
     return axios.get(Baseurl+'student/od/'+number)
+}
+export function getAllLeaveRequest(){
+    return axios.get(Baseurl+'request/all')
 }

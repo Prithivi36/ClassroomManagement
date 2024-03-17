@@ -4,8 +4,10 @@ import ClassRoomModal from './Modals/ClassRoomModal'
 import ReqModal from './Modals/ReqModal'
 import ConcMark from './Modals/ConcMark'
 import MetaInfoCard from './Components/MetaInfoCard'
+import { useNavigate } from 'react-router-dom'
 
 function Teachers() {
+  const navigator=useNavigate()
   return (
     
   <div className="d-sm-flex justify-content-around">
@@ -16,8 +18,8 @@ function Teachers() {
               <p>Department of Physics</p>
               <button data-bs-toggle='modal' data-bs-target='#addMat' className="btn btn-primary d-block mb-2">+Add to ClassRoom</button>
               <ClassRoomModal/>
-              <button data-bs-toggle='modal' data-bs-target='#reqCheck' className="btn btn-success d-block mb-2">Check Requests</button>
-              <ReqModal />
+              <button onClick={()=>navigator('/allRequests')} className="btn btn-success d-block mb-2">Check Requests</button>
+              
               <button data-bs-toggle='modal' data-bs-target='#markConc' className="btn btn-danger d-block mb-2">+ Mark Concerns</button>
               <ConcMark />
           </div>
