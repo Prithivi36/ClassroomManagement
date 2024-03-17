@@ -3,7 +3,7 @@ import OndutyTable from '../Table/OndutyTable'
 import IssuesTable from '../Table/IssuesTable'
 import AbsentTable from '../Table/AbsentTable'
 
-function ConcernModal() {
+function ConcernModal(props) {
   return (
     <div id='Concerns' className="modal fade">
         <div className="modal-dialog modal-dialog-centered">
@@ -22,9 +22,9 @@ function ConcernModal() {
                         </li>
                     </ul>
                     <div className="tab-content" id="myTabContent">
-                        <AbsentTable/>
+                        <AbsentTable  />
                         <OndutyTable />
-                        <IssuesTable/>
+                        <IssuesTable />
                     </div>
                 </div>
             </div>

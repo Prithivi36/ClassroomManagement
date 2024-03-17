@@ -21,7 +21,7 @@ function Login() {
 
  function handleSubmit(){
    localStorage.setItem('currentUser',currentUser.userId)
-   role==='teachers'?navigator('/teacher/1'):navigator('/student/1')
+   role==='teachers'?navigator('/teacher/1'):navigator('/student/'+currentUser.userId)
 
  }
 

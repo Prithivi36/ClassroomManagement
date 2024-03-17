@@ -12,7 +12,7 @@ function AchievementAddModal() {
                     <input id='Achievement' type="text " className='form-control my-2' placeholder='Enter Reason' />
 
                     <select className='form-select'>
-                    <option selected>Select Position</option>
+                    <option value={null}>Select Position</option>
                     <option value="1">Place One</option>
                     <option value="2">Place Two</option>
                     <option value="3">Place Three</option>

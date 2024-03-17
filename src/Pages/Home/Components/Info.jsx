@@ -3,11 +3,22 @@ import Prithivi from '../Images/Profile.png'
 import RegularInfoTable from './Table/RegularInfoTable'
 import SkillsModal from './Modals/SkillsModal'
 import AchievementsModal from './Modals/AchievementsModal'
+import { getStudent } from '../../../Api/StudentApi'
 
 function Info() {
+  const [selectedStudent,setSelectedStudent]=React.useState({})
+    
+  React.useEffect(
+      ()=>{
+          getStudent(localStorage.getItem('currentUser')).then(
+              res=>setSelectedStudent(res.data)
+          )
+      }
+      ,[]
+  )
   return (
     <div>
-        <div className="container mt-4 d-md-flex justify-content-between">
+        <div className="container mt-4 d-lg-flex justify-content-between">
             <div className='d-flex flex-column align-items-center justify-content-center'>
               <img src={Prithivi} className='img-fluid w-50 rounded-circle bg-warning ' />
               <div className="card p-2 flex-row mt-3">
@@ -21,8 +32,10 @@ function Info() {
                 <AchievementsModal/>
               </div>
             </div>
-            <div className="card ms-2 p-4 justify-content-center ">
-                <RegularInfoTable />
+            <div className="card mt-2 ms-2 p-4 justify-content-center ">
+                <RegularInfoTable name={selectedStudent.studentName} branch={selectedStudent.branch}
+                  phone={selectedStudent.phone} mail={selectedStudent.mail}
+                />
                 <div className="card p-2 flex-row justify-content-around mt-3">
                   <button className="btn rounded-circle btn-success">
                   <i className="bi bi-whatsapp"></i>

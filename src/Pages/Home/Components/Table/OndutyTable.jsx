@@ -1,4 +1,5 @@
 import React from 'react'
+import { getStudentOnDuty } from '../../../../Api/StudentApi'
 
 function OndutyTable() {
   return (
