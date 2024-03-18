@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="ClassroomManagement">
           <Navbar />
         <Routes>
             <Route path='/:role/:id' element={<Home />} />
