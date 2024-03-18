@@ -6,18 +6,16 @@ import Classroom from "./Pages/Classroom/Classroom.jsx"
 import AbsentMarkdown from "./Pages/Absent/AbsentMarkdown.jsx"
 import Navbar from "./Common/Navbar.jsx"
 import LeaveTablePage from "./Pages/LeaveReuests/LeaveTablePage.jsx"
-import NotFound from "./NotFound.jsx"
 
 function App() {
 
   return (
     <>
-      <BrowserRouter >
+      <BrowserRouter basename="/ClassroomManagement" >
           <Navbar />
         <Routes>
-            <Route path='*' element={<NotFound />} />
-            <Route path='/:role/:id' element={<Home />} />
             <Route path='/' element={<Login />} />
+            <Route path='/:role/:id' element={<Home />} />
             <Route path='/login/:role' element={<Login />} />
             <Route path='/teacher/:id' element={<Teachers />} />
             <Route path={'/classroom'} element={<Classroom />} />
