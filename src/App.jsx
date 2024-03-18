@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter basename="ClassroomManagement">
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Navbar />
         <Routes>
             <Route path='/:role/:id' element={<Home />} />
