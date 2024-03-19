@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAllStudent } from '../../../Api/StudentApi'
 import { useNavigate } from 'react-router-dom'
-
+//
 function MetaInfoCard() {
 
   const [metaInfo,setMetaInfo]=React.useState([])

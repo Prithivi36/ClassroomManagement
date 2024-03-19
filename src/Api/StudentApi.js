@@ -18,3 +18,6 @@ export function getStudentOnDuty(number){
 export function getAllLeaveRequest(){
     return axios.get(Baseurl+'request/all')
 }
+export function postRequest(req){
+    return axios.post(Baseurl+'request/raise',req)
+}

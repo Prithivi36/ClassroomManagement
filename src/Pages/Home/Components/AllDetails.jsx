@@ -24,7 +24,7 @@ function AllDetails() {
 
     <div className="container p-3 mt-5">
         <button data-bs-toggle='modal' data-bs-target='#Concerns' className="btn btn-danger btn-sm">Concerns</button>
-        <button data-bs-toggle='modal' data-bs-target='#leaveModal' className="btn btn-sm ms-2 btn-primary">+ Leave</button>
+        <button data-bs-toggle='modal' data-bs-target='#leaveModal' className="btn btn-sm ms-2 btn-primary">+ Permission</button>
         <button data-bs-toggle='modal' data-bs-target='#AchieveAdd'  className="btn btn-sm ms-2 btn-success">+ Achievements</button>
         <button data-bs-toggle='modal' data-bs-target='#SkillsAdd' className="btn btn-sm ms-2 btn-warning">+ Skills</button>
         <ConcernModal merit={selectedStudent.studentConcern}  />
