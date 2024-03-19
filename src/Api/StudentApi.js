@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Baseurl="http://192.168.1.2:8080/"
+const Baseurl="http://43.205.8.40:8080/"
 
 export function getAllStudent(){
     return axios.get(Baseurl+'student/getAll')
