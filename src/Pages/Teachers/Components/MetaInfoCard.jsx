@@ -1,9 +1,11 @@
 import React from 'react'
 import { getAllStudent } from '../../../Api/StudentApi'
+import { useNavigate } from 'react-router-dom'
 
 function MetaInfoCard() {
 
   const [metaInfo,setMetaInfo]=React.useState([])
+  const navigator=useNavigate()
 
   React.useEffect(
     ()=>{
@@ -15,7 +17,7 @@ function MetaInfoCard() {
 
   const metaCards=metaInfo.map((info)=>{
     return(
-      <div key={info.id} onClick={()=>window.location.href = '/student/'+info.regNo} className="card flex-row px-3 py-3">
+      <div key={info.id} onClick={()=>navigator('/student/'+info.regNo)} className="card flex-row px-3 py-3">
         <table>
           <tbody>
             <tr>
