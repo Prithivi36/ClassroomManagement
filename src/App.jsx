@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter basename="/ClassroomManagement" >
+      <BrowserRouter >
           <Navbar />
         <Routes>
             <Route path='/' element={<Login />} />
