@@ -6,6 +6,7 @@ import Classroom from "./Pages/Classroom/Classroom.jsx"
 import AbsentMarkdown from "./Pages/Absent/AbsentMarkdown.jsx"
 import Navbar from "./Common/Navbar.jsx"
 import LeaveTablePage from "./Pages/LeaveReuests/LeaveTablePage.jsx"
+import RegisterPage from "./Pages/Register/RegisterPage.jsx"
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Navbar />
         <Routes>
             <Route path='/' element={<Login />} />
+            <Route path='/register' element={<RegisterPage />} />
             <Route path='/:role/:id' element={<Home />} />
             <Route path='/login/:role' element={<Login />} />
             <Route path='/teacher/:id' element={<Teachers />} />

@@ -68,6 +68,8 @@ function Login() {
         <label htmlFor="password" className='fw-medium mt-4'>Password</label>
         <input name='password' onChange={handleChange} id='password' className='form-control'  type="password" />
 
+        <p style={{cursor:'pointer'}} onClick={()=>navigator('/register')} className='text-primary fw-light mt-3'>New here?, Click to register</p>
+
         <button onClick={handleSubmit} className='btn btn-primary mt-4'>Login</button>
       </div>
     </div>
