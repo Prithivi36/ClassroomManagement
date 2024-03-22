@@ -39,10 +39,10 @@ function AbsentByHour() {
         <div className="modal-content">
           <div className="modal-body">
             
-            <label htmlFor="dateInfo" className='fw-bolder d-block  m-1'> Skills :</label>
+            <label htmlFor="dateInfo" className='fw-bolder d-block  m-1'> Date :</label>
             <input onChange={handleChange} name='date' id='dateInfo' style={{border:'solid 1px gray'}} className='bg-white p-2 d-block rounded-3'  type="date" />
 
-            <label htmlFor="hourInfo" className='fw-bolder d-block  m-1'> Skills :</label>
+            <label htmlFor="hourInfo" className='fw-bolder d-block  m-1'> Hour :</label>
             <select onChange={handleChange} name='hour' id='hourInfo' className='form-control'>
                 <option value="">Select Hour</option>
                 <option value="1">1</option>

@@ -43,7 +43,7 @@ function AbsentByDateModal() {
         <div className="modal-content">
           <div className="modal-body">
             
-            <label htmlFor="reasonInfo" className='fw-bolder d-block  m-1'> Skills :</label>
+            <label htmlFor="reasonInfo" className='fw-bolder d-block  m-1'> Date :</label>
             <input onChange={handleChange} name='date' id='dateInfo' style={{border:'solid 1px gray'}} className='bg-white p-2 d-block rounded-3'  type="date" />
             <button onClick={absentRequest} className="btn btn-primary me-3 my-2">Check Absent</button>
             <button onClick={odRequest} className="btn btn-primary my-2">Check On Duty</button>
