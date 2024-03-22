@@ -1,5 +1,6 @@
 import React from 'react'
 import { getAbsents, getods } from '../../../Api/StudentApi'
+import { nanoid } from 'nanoid'
 
 function AbsentByDateModal() {
 
@@ -23,8 +24,9 @@ function AbsentByDateModal() {
     }
 
     const metaInfo=recieved?recieved.map((stud)=>{
+        const id=nanoid()
         return(
-            <div className="card m-1 p-2">
+            <div key={id} className="card m-1 p-2">
                 <p>Register Number : {stud.regNo}</p>
                 <p>Name : {stud.studentName}</p>
             </div>

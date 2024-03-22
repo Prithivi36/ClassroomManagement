@@ -1,6 +1,7 @@
 import React from 'react';
 import { sendAbsent, sendOnDuty } from '../../Api/StudentApi';
 import AbsentByDateModal from './Modals/AbsentByDateModal';
+import AbsentByHour from './Modals/AbsentByHour';
 
 function AbsentMarkdown() {
     const studentsNumbers = [];
@@ -86,9 +87,10 @@ function AbsentMarkdown() {
                      </button>
                      <AbsentByDateModal />
                     
-                    <button data-bs-toggle='modal' className="btn me-3 mt-2 btn-info text-light">By Hour
+                    <button data-bs-toggle='modal' data-bs-target='#SearchByHour' className="btn me-3 mt-2 btn-info text-light">By Hour
                     <i className="bi bi-clock-fill  ms-2"></i>
                     </button>
+                    <AbsentByHour />
                     
                 </div>
                 <div className="row col justify-content-center">

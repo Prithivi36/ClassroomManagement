@@ -50,6 +50,9 @@ export function meritDecrease(regNo){
 export function getAbsents(date){
     return axios.get(Baseurl+'absent/on/'+date)
 }
+export function getAbsentsByHour(date,hour){
+    return axios.get(Baseurl+'absent/on/'+date+'/'+hour)
+}
 export function getods(date){
     return axios.get(Baseurl+'onduty/on/'+date)
 }
