@@ -33,3 +33,9 @@ export function sendAbsent(outlist){
 export function sendOnDuty(outList){
     return axios.post(Baseurl+'onduty/send',outList)
 }
+export function meritIncrease(regNo){
+    return axios.patch(Baseurl+'student/merit/inc/'+regNo)
+}
+export function meritDecrease(regNo){
+    return axios.patch(Baseurl+'student/merit/dec/'+regNo)
+}

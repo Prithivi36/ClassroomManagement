@@ -1,13 +1,36 @@
 import React from 'react'
+import { meritDecrease, meritIncrease } from '../../../Api/StudentApi'
 
 function ConcMark() {
+
+  const [regNum,setRegNo]=React.useState(0)
+
+  function handleChange(event){
+    const {value}=event.target
+    setRegNo(value)
+  }
+
+  function increase(){
+    meritIncrease(regNum).then(
+      res=>console.log(res.data)
+    )
+  }
+  function decrease(){
+    meritDecrease(regNum).then(
+      res=>console.log(res.data)
+    )
+  }
+
   return (
     <div id='markConc' className="modal fade">
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
         <div  className="modal-body">
-          <input placeholder='Enter Reg.no' className='form-control' type="text" />
-          <button className='btn mt-3 btn-primary'>Inc Count</button>
+          <input onChange={handleChange} placeholder='Enter Reg.no' className='form-control' type="text" />
+          <div className="d-flex">
+            <button onClick={increase} className='btn mt-3 me-3 btn-sm btn-warning'>Increase</button>
+            <button onClick={decrease} className='btn mt-3 btn-sm btn-warning'>Decrease</button>
+          </div>
         </div>
         </div>
       </div>

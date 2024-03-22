@@ -38,18 +38,18 @@ function Info() {
                   phone={selectedStudent.phone} mail={selectedStudent.mail}
                 />
                 <div className="card p-2 flex-row justify-content-around mt-3">
-                  <button className="btn rounded-circle btn-success">
+                  <a target='_blank' href={`https://wa.me/+91${selectedStudent.phone}`} className="btn rounded-circle btn-success">
                   <i className="bi bi-whatsapp"></i>
-                  </button>
+                  </a>
                   <button className="btn rounded-circle btn-primary">
                   <i className="bi bi-linkedin"></i>
                   </button>
                   <button className="btn rounded-circle btn-danger">
                   <i className="bi bi-instagram"></i>
                   </button>
-                  <button className="btn rounded-circle btn-danger">
+                  <a href={`tel:+91${selectedStudent.phone}`} className="btn rounded-circle btn-danger">
                   <i className="bi bi-phone"></i>
-                  </button>
+                  </a>
                 </div>
             </div>
         </div>
