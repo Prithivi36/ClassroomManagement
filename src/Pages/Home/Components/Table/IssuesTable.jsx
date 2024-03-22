@@ -23,7 +23,6 @@ function IssuesTable(props) {
           {stars}        
         </div>
     </div>
-    <button className="btn btn-primary">Add</button>
     </>
   )
 }

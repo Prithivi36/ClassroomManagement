@@ -18,6 +18,7 @@ function AbsentTable(props) {
             <tr key={day.id} >
                     <td>{day.id}</td>
                     <td>{day.date}</td>
+                    <td>{day.hour}</td>
             </tr>
         )
     })
@@ -29,6 +30,7 @@ function AbsentTable(props) {
                 <tr className='table-dark'>
                     <td>Id</td>
                     <td>Date</td>
+                    <td>Hour</td>
                 </tr>
             </thead>
             <tbody>

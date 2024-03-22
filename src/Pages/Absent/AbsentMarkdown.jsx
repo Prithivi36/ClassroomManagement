@@ -1,4 +1,5 @@
 import React from 'react';
+import { sendAbsent } from '../../Api/StudentApi';
 
 function AbsentMarkdown() {
     const studentsNumbers = [];
@@ -23,7 +24,15 @@ function AbsentMarkdown() {
             setOutGoingList({incomingList:[...selectedStudents]})
         },[selectedStudents]
     )
-console.log(outGoingList)
+
+    function onSend(){
+        sendAbsent(outGoingList).then(
+            res=>{
+                console.log(res.data)
+            }
+        )
+    }
+
     function isSelected(student) {
         return selectedStudents.has(student);
     }
@@ -52,7 +61,7 @@ console.log(outGoingList)
                             <i className="bi text-success bi-x-circle-fill" onClick={() => addSelectedStudent(student)}></i>
                         </div>
                     ))}
-                    <button className="btn btn-primary btn-sm my-2">Submit</button>
+                    <button onClick={onSend} className="btn btn-primary btn-sm my-2">Submit</button>
                 </div>
             </div>
             <input className='form-control' type="number" placeholder='Enter reg. no' />
