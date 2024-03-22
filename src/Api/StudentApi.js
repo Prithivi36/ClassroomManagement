@@ -22,6 +22,13 @@ export function postRequest(req){
     return axios.post(Baseurl+'request/raise',req)
 }
 
+export function changeStatus(reg){
+    return axios.patch(Baseurl+'request/toggle/'+reg)
+}
+export function deleteStatus(reg){
+    return axios.delete(Baseurl+'request/del/'+reg)
+}
+
 export function sendStudent(detail){
     return axios.post(Baseurl+'student/new',detail)
 }

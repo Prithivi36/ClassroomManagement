@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAllLeaveRequest } from '../../Api/StudentApi'
+import { changeStatus, deleteStatus, getAllLeaveRequest } from '../../Api/StudentApi'
 
 
 function LeaveTablePage() {
@@ -25,8 +25,12 @@ function LeaveTablePage() {
           <td>{req.status?'Accepted':'Pending'}</td>
           <td>
           <div className="d-flex">
-            <button className='btn btn-sm btn-success'>Change Status</button>
-            <button className='btn btn-sm btn-danger ms-2'>Reject</button>
+            <button onClick={()=>{
+              changeStatus(req.id).then(res=>location.reload())
+            }} className='btn btn-sm btn-success'>Change Status</button>
+            <button onClick={()=>{
+              deleteStatus(req.id).then(res=>location.reload())
+            }} className='btn btn-sm btn-danger ms-3'>Reject</button>
           </div>
           </td>
         </tr>
