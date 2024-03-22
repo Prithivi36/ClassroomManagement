@@ -1,5 +1,6 @@
 import React from 'react';
 import { sendAbsent, sendOnDuty } from '../../Api/StudentApi';
+import AbsentByDateModal from './Modals/AbsentByDateModal';
 
 function AbsentMarkdown() {
     const studentsNumbers = [];
@@ -80,13 +81,12 @@ function AbsentMarkdown() {
             <div className="row justify-content-around">
                 <div className=" col-md-2 mb-3">
                     <p className='fw-bolder p-2 mb-2'>Tools</p>
-                    <button className="btn me-3 mt-2 btn-info text-light">Find Absent By Date 
+                    <button data-bs-toggle='modal' data-bs-target='#SearchByDate' className="btn me-3 mt-2 btn-info text-light">Date Absent 
                     <i className="bi ms-2 bi-calendar-fill"></i>
                      </button>
-                    <button className="btn me-3 mt-2 btn-info text-light">Find On Duty By Date
-                    <i className="bi ms-2 bi-calendar-event-fill"></i>
-                    </button>
-                    <button className="btn me-3 mt-2 btn-info text-light">Find Absent on Hour
+                     <AbsentByDateModal />
+                    
+                    <button data-bs-toggle='modal' className="btn me-3 mt-2 btn-info text-light">By Hour
                     <i className="bi bi-clock-fill  ms-2"></i>
                     </button>
                     
@@ -115,7 +115,9 @@ function AbsentMarkdown() {
                     </div>
                     </div>
                     <div className="justify-content-center row">
-                        <button onClick={sendList} className="btn mb-3 col-md-1 btn-primary btn-sm my-2">Submit</button>
+                        <div className=" col-md-2">
+                            <button onClick={sendList} className="btn mb-3 btn-primary btn-sm my-2">Submit</button>
+                        </div>
                     </div>
                 </div>
                 

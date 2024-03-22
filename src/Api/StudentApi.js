@@ -46,3 +46,10 @@ export function meritIncrease(regNo){
 export function meritDecrease(regNo){
     return axios.patch(Baseurl+'student/merit/dec/'+regNo)
 }
+
+export function getAbsents(date){
+    return axios.get(Baseurl+'absent/on/'+date)
+}
+export function getods(date){
+    return axios.get(Baseurl+'onduty/on/'+date)
+}
