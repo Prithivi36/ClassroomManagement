@@ -29,3 +29,7 @@ export function sendStudent(detail){
 export function sendAbsent(outlist){
     return axios.post(Baseurl+'absent/send',outlist)
 }
+
+export function sendOnDuty(outList){
+    return axios.post(Baseurl+'onduty/send',outList)
+}
