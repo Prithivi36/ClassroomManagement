@@ -82,7 +82,7 @@ function AbsentMarkdown() {
             <div className="row justify-content-around">
                 <div className=" col-md-2 mb-3">
                     <p className='fw-bolder p-2 mb-2'>Tools</p>
-                    <button data-bs-toggle='modal' data-bs-target='#SearchByDate' className="btn me-3 mt-2 btn-info text-light">Date Absent 
+                    <button data-bs-toggle='modal' data-bs-target='#SearchByDate' className="btn me-3 mt-2 btn-info text-light">By Date 
                     <i className="bi ms-2 bi-calendar-fill"></i>
                      </button>
                      <AbsentByDateModal />

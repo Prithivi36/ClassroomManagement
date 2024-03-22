@@ -1,6 +1,7 @@
 import React from 'react'
 import { getAbsents, getods } from '../../../Api/StudentApi'
 import { nanoid } from 'nanoid'
+import { useNavigate } from 'react-router-dom'
 
 function AbsentByDateModal() {
 
@@ -23,10 +24,12 @@ function AbsentByDateModal() {
         )
     }
 
+    const navigator=useNavigate()
+
     const metaInfo=recieved?recieved.map((stud)=>{
         const id=nanoid()
         return(
-            <div key={id} className="card m-1 p-2">
+            <div onClick={()=>navigator(`/student/${stud.regNo}`)} key={id} className="card m-1 p-2">
                 <p>Register Number : {stud.regNo}</p>
                 <p>Name : {stud.studentName}</p>
             </div>
