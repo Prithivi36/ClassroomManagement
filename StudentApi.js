@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Baseurl="http://204.236.214.225:8080/"
+const Baseurl="http://localhost:8080/"
 
 export function getAllStudent(){
     return axios.get(Baseurl+'student/getAll')
