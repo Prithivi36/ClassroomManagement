@@ -10,9 +10,9 @@ function SkillsModal(props) {
                         <tbody>
                             {props.skills?props.skills.map((skill)=>{
                                 return(
-                                <tr><td><li className='fw-bolder'>{skill.skill}</li></td></tr>
+                                <tr key={skill.id} ><td><li className='fw-bolder'>{skill.skill}</li></td></tr>
                                 )
-                            }):''}
+                            }):<tr></tr>}
                         </tbody>
                     </table>
 

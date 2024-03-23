@@ -17,8 +17,7 @@ function RegisterPage() {
         motherNumber: '',
         bloodGroup: '',
         cgpa: '',
-        studentConcern: 0,
-        password: ''
+        studentConcern: 0
       })
 
       function handleChange(event){
@@ -102,10 +101,6 @@ function RegisterPage() {
                 <div className="form-group mt-3">
                     <label className="fw-bolder" htmlFor="cgpa">CGPA</label>
                     <input onChange={handleChange}  name='cgpa' type="number" className="form-control" id="cgpa" placeholder="Enter CGPA" />
-                </div>
-                <div className="form-group mt-3">
-                    <label className="fw-bolder" htmlFor="password">Password</label>
-                    <input onChange={handleChange}  name='password' type="password" className="form-control" id="password" placeholder="Enter Password" />
                 </div>
             </div>
             <button onClick={handelSubmit} className="btn btn-primary mt-5">Register</button>

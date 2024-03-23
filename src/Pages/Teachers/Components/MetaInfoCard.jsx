@@ -6,6 +6,7 @@ function MetaInfoCard() {
 
   const [metaInfo,setMetaInfo]=React.useState([])
   const navigator=useNavigate()
+  const [recieved,setRecieved]=React.useState(null)
 
   React.useEffect(
     ()=>{
@@ -15,9 +16,13 @@ function MetaInfoCard() {
     },[]
   )
 
+  function getRecieved(){
+    
+  }
+
   const metaCards=metaInfo.map((info)=>{
     return(
-      <div key={info.id} onClick={()=>navigator('/student/'+info.regNo)} className="card flex-row px-3 py-3">
+      <div key={info.id} onClick={()=>navigator('/student/'+info.regNo)} className="card flex-row mb-2 px-3 py-3">
         <table>
           <tbody>
             <tr>
@@ -36,6 +41,7 @@ function MetaInfoCard() {
 
   return (
     <>
+    <button className="btn mb-2 btn-primary">Filter By Skils</button>
     {metaCards}
     </>
   )
