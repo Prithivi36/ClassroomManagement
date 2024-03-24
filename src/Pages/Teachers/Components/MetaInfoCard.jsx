@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAllStudent } from '../../../Api/StudentApi'
+import { getAllStudent, getStudentBySkill } from '../../../Api/StudentApi'
 import { useNavigate } from 'react-router-dom'
 //
 function MetaInfoCard() {
@@ -7,7 +7,7 @@ function MetaInfoCard() {
   const [metaInfo,setMetaInfo]=React.useState([])
   const navigator=useNavigate()
   const [recieved,setRecieved]=React.useState(null)
-
+  const [skill,setSkills]=React.useState('')
   React.useEffect(
     ()=>{
       getAllStudent().then(
@@ -17,10 +17,9 @@ function MetaInfoCard() {
   )
 
   function getRecieved(){
-    
+    getStudentBySkill(skill).then(res=>setRecieved(res.data))
   }
-
-  const metaCards=metaInfo.map((info)=>{
+  const metaCards=(recieved||metaInfo).map((info)=>{
     return(
       <div key={info.id} onClick={()=>navigator('/student/'+info.regNo)} className="card flex-row mb-2 px-3 py-3">
         <table>
@@ -41,7 +40,12 @@ function MetaInfoCard() {
 
   return (
     <>
-    <button className="btn mb-2 btn-primary">Filter By Skils</button>
+    <div className="d-flex mb-3">
+        {!recieved?<button onClick={getRecieved} className="btn  btn-primary">Filter By Skils</button>:
+        <button onClick={()=>{setRecieved('')
+        setSkills('')}} className="btn  btn-secondary">clear</button>}
+      <input value={skill} onChange={(event)=>setSkills(event.target.value)} className='w-50 ms-3 form-control' placeholder='Search By Skill' type="text" />
+    </div>
     {metaCards}
     </>
   )

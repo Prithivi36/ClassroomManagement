@@ -62,3 +62,6 @@ export function getLeaveRequestByDate(id,date){
 export function postSkills(id,skill){
     return axios.post(`${Baseurl}student/skill/add/${id}/${skill}`)
 }
+export function getStudentBySkill(skill){
+    return axios.get(Baseurl+'skills/'+skill)
+}

@@ -1,77 +1,74 @@
 export {Dummydata}
-const Dummydata=[
-    {
-        
+const Dummydata={
         sem1:{
             maths:[
-                {
-                    name:'file1',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-                {
-                    name:'file2',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-                {
-                    name:'file3',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-            ],
-            physics:[
-                {
-                    name:'file1',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-                {
-                    name:'file2',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-                {
-                    name:'file3',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-            ],
-            chemistry:[
-                {
-                    name:'file1',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-                {
-                    name:'file2',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-                {
-                    name:'file3',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-            ],
-            BEEE:[
-                {
-                    name:'file1',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-                {
-                    name:'file2',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-                {
-                    name:'file3',
-                    type:'pdf',
-                    content:'xyz.pdf'
-                },
-            ],
-        },
+            {
+                name:'file1',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+            {
+                name:'file2',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+            {
+                name:'file3',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+        ],
+        physics:[
+            {
+                name:'file1',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+            {
+                name:'file2',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+            {
+                name:'file3',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+        ],
+        chemistry:[
+            {
+                name:'file1',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+            {
+                name:'file2',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+            {
+                name:'file3',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+        ],
+        BEEE:[
+            {
+                name:'file1',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+            {
+                name:'file2',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+            {
+                name:'file3',
+                type:'pdf',
+                content:'xyz.pdf'
+            },
+        ]},
         sem2:{
             English:[
                 {
@@ -229,9 +226,5 @@ const Dummydata=[
                 },
             ],
         },
-        
-        
-    },
-    
-]
+}
 

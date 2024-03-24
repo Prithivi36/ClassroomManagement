@@ -5,50 +5,49 @@ import Folder from './Folder.webp'
 import File from './Pdf.webp'
 
 function Classroom() {
-const {sem}=useParams()
+const {semester}=useParams()
 const {sub}=useParams()
 
-const file=Dummydata
+const file=Object.keys(Dummydata)
      const navigator=useNavigate()
 
-    function giveElements(doc){
-        if(!sem){const keys=Object.keys(doc)
-        return(keys.map(key=>
-        <div key={key} onClick={()=>{navigator('/classroom/'+key)}} className="card align-items-center mx-3 p-3">
-            <img className='img-fluid' src={Folder} width={'100px'}/>
-            <p className='text-center fw-bolder'>{key}</p>
-        </div>
-        ))}
-
-        if(sem&&!sub){
-            const semester=file[0][sem]
-            const keys=Object.keys(semester)
-        return(keys.map(key=>
-        <div key={key} onClick={()=>{navigator('/classroom/'+sem+'/'+key)}} className="card align-items-center mx-3  p-3">
-            <img className='img-fluid' src={Folder} width={'100px'}/>
-            <p className='text-center fw-bolder'>{key}</p>
-        </div>
-        ))
-        }
-
-        if(sub){
-            const subjects=file[0][sem][sub]
-            const files=subjects.map(file=>{
-                return(
-                    <div key={file.name} onClick={()=>{console.log('donwloading content...')}} className="card align-items-center mx-3 p-3">
-                        <img className='img-fluid' src={File} width={'100px'}/>
-                        <p className='text-center fw-bolder'>{file.name}</p>
-                    </div>
-                )
-            })
-
-            return files
-        }
+let semElements;
+    if(!semester){
+        semElements=file.map((sem)=>{
+        return(
+            <div key={sem} onClick={()=>{navigator('/classroom/'+sem)}} className="card align-items-center mx-3 p-3">
+                <img className='img-fluid' src={Folder} width={'100px'}/>
+                <p className='text-center fw-bolder'>{sem}</p>
+            </div>
+        )})
+    }
+    else if(semester&&!sub){
+        const subjects=Object.keys(Dummydata[semester])
+        semElements= (subjects.map((subjects)=>{
+            return(
+                <div key={subjects} onClick={()=>{navigator('/classroom/'+semester+'/'+subjects)}} className="card align-items-center mx-3 p-3">
+                    <img className='img-fluid' src={Folder} width={'100px'}/>
+                    <p className='text-center fw-bolder'>{subjects}</p>
+                </div>
+            )
+        }))
+    }
+    else if(semester&&sub){
+        const files=(Dummydata[semester][sub])
+        semElements= (files.map((file)=>{
+            return(
+                <div key={file.name} onClick={()=>console.log('downloading...')} className="card align-items-center mx-3 p-3">
+                    <img className='img-fluid' src={File} width={'100px'}/>
+                     <p className='text-center fw-bolder'>{file.name}</p>
+                 </div>
+             )
+         }))
     }
 
-    const semElements=file.map(e=>{
-        return (giveElements(e))
-    })
+    
+
+
+
     
   return (
     <div>

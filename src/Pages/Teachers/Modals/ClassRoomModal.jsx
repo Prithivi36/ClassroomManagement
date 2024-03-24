@@ -1,6 +1,9 @@
 import React from 'react'
 
 function ClassRoomModal() {
+
+  const [dataStruct,setDataStruct]=React.useState([])
+
   return (
     <>
         <div id='addMat' className="modal fade">

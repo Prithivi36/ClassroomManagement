@@ -21,8 +21,8 @@ function App() {
             <Route path='/login/:role' element={<Login />} />
             <Route path='/teacher/:id' element={<Teachers />} />
             <Route path={'/classroom'} element={<Classroom />} />
-            <Route path={'/classroom/:sem'} element={<Classroom />} />
-            <Route path={'/classroom/:sem/:sub'} element={<Classroom />} />
+            <Route path={'/classroom/:semester'} element={<Classroom />} />
+            <Route path={'/classroom/:semester/:sub'} element={<Classroom />} />
             <Route path={'/absent'} element={<AbsentMarkdown />} />
             <Route path={'/allRequests'} element={<LeaveTablePage />} />
         </Routes>
