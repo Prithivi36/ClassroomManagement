@@ -12,12 +12,14 @@ function MetaInfoCard() {
     ()=>{
       getAllStudent().then(
         res=>setMetaInfo(res.data)
-      )
+      ).catch(err=>alert('You are Not Authorized'))
     },[]
   )
 
   function getRecieved(){
-    getStudentBySkill(skill).then(res=>setRecieved(res.data))
+    getStudentBySkill(skill).then(res=>setRecieved(res.data)
+    
+    ).catch(err=>alert('You are Not Authorized'))
   }
   const metaCards=(recieved||metaInfo).map((info)=>{
     return(

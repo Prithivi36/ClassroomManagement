@@ -3,7 +3,7 @@ import Loading from './loading'
 
 function LoadingPage() {
   return (
-    <div>
+    <div style={{height:'100vh'}} className='d-flex bg-dark justify-content-center align-items-center'>
         <Loading />
     </div>
   )

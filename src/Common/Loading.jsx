@@ -5,8 +5,8 @@ import $ from "jquery";
 import { useMediaQuery } from "react-responsive";
 
 const ParentDiv = styled.div`
-  width: ${(props) => props.bolterWidth}px;
-  height: ${(props) => props.bolterHeight}px;
+  width: ${(props) => props.bolterwidth}px;
+  height: ${(props) => props.bolterheight}px;
   position: relative;
   padding: 20px;
   background: ${(props) => props.background};
@@ -94,7 +94,7 @@ const StyledDiv = styled.div`
     width: 64px;
     height: 64px;
     margin: -32px 0 0 -32px;
-    background: ${(props) => props.backgroundBlurColor};
+    background: ${(props) => props.backgroundblurcolor};
     z-index: 1;
     filter: blur(60px);
   }
@@ -102,8 +102,8 @@ const StyledDiv = styled.div`
 
 const StyledSpan = styled.span`
   display: block;
-  width: ${(props) => props.bolterWidth}px;
-  height: ${(props) => props.bolterHeight}px;
+  width: ${(props) => props.bolterwidth}px;
+  height: ${(props) => props.bolterheight}px;
   background: ${(props) => props.boltColor};
   clip-path: polygon(40% 0%, 100% 0, 65% 40%, 88% 40%, 8% 100%, 36% 50%, 0 50%);
 `;
@@ -112,7 +112,7 @@ function Loading({
     className = `loaderbolt`,
     background = `transparent`,
     boltColor = `#6366F1`,
-    backgroundBlurColor = `#E0E7FF`,
+    backgroundblurcolor = `#E0E7FF`,
     size = `64px`,
     desktopSize = ``,
     mobileSize = ``,
@@ -131,8 +131,8 @@ function Loading({
     }
   
     let sizePassed = parseFloat(sizeFound);
-    let bolterWidth = (sizePassed * 63) / 64;
-    let bolterHeight = (sizePassed * 93) / 64;
+    let bolterwidth = (sizePassed * 63) / 64;
+    let bolterheight = (sizePassed * 93) / 64;
   
     useEffect(() => {
       $("." + className).each(function (e) {
@@ -236,8 +236,8 @@ function Loading({
         <ParentDiv
           className={className}
           background={background}
-          bolterWidth={bolterWidth}
-          bolterHeight={bolterHeight}
+          bolterwidth={bolterwidth}
+          bolterheight={bolterheight}
         >
           <StyledSVGWhiteLeft
             boltColor={boltColor}
@@ -255,12 +255,12 @@ function Loading({
           </StyledSVGWhiteRight>
           <StyledDiv
             className="boltloadersparkdiv"
-            backgroundBlurColor={backgroundBlurColor}
+            backgroundblurcolor={backgroundblurcolor}
           >
             <StyledSpan
               boltColor={boltColor}
-              bolterWidth={bolterWidth}
-              bolterHeight={bolterHeight}
+              bolterwidth={bolterwidth}
+              bolterheight={bolterheight}
               className="boltloadersparkdivspan"
             ></StyledSpan>
           </StyledDiv>
