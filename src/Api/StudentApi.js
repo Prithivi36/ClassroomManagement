@@ -2,6 +2,11 @@ import axios from "axios";
 
 const Baseurl="http://localhost:8080/"
 
+axios.interceptors.request.use(function(config){
+    config.headers['Authorization']=localStorage.getItem("token")
+    return config;
+})
+
 export function getAllStudent(){
     return axios.get(Baseurl+'student/getAll')
 }
@@ -65,3 +70,27 @@ export function postSkills(id,skill){
 export function getStudentBySkill(skill){
     return axios.get(Baseurl+'skills/'+skill)
 }
+export function sendFiles(formData,semDetail,subjectDetail){
+    return  axios.post(Baseurl+'upload/'+semDetail+'/'+subjectDetail,formData
+    , {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+    )
+}
+
+export function registerStudent(studentInfo){
+    return axios.post(Baseurl+'auth/register/student',studentInfo)
+}
+
+export function loginStudent(studentInfo){
+    axios.post(Baseurl+'auth/get',studentInfo)
+    .then(res=>{
+        console.log(studentInfo),
+        console.log(res.data),
+        localStorage.setItem('token',"Bearer "+res.data)
+        location.reload()
+    })
+}
+

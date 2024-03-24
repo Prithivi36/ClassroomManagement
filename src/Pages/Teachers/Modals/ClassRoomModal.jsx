@@ -1,8 +1,24 @@
+import axios from 'axios'
 import React from 'react'
+import { loginStudent, sendFiles } from '../../../Api/StudentApi'
 
 function ClassRoomModal() {
 
   const [dataStruct,setDataStruct]=React.useState([])
+
+  const [file,setFile]=React.useState(null)
+
+  function handelFileChange(event){
+    setFile(event.target.files)
+  }
+  function handleSubmit(){
+    const formData=new FormData();
+    formData.append('file',file[0])
+    sendFiles(formData).then(
+      res=>console.log(res.data)
+    )
+  }
+
 
   return (
     <>
@@ -25,7 +41,8 @@ function ClassRoomModal() {
                   <option value="4">R</option>
                 </select>
 
-                <input type="file" className="custom-file-input mt-3" />
+                <input onChange={handelFileChange} type="file" className="custom-file-input mt-3" />
+                <button onClick={handleSubmit}>Send</button>
               </div>
             </div>
           </div>
