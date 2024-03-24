@@ -90,7 +90,6 @@ export function loginStudent(studentInfo){
         console.log(studentInfo),
         console.log(res.data),
         localStorage.setItem('token',"Bearer "+res.data)
-        location.reload()
     })
 }
 

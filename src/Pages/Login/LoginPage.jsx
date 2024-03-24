@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { loginStudent } from '../../Api/StudentApi'
 
+
+
 function Login() {
 
  const [currentUser,setCurrentUser]=React.useState({
@@ -21,8 +23,12 @@ function Login() {
 
  function handleSubmit(){
     loginStudent(currentUser)
-    localStorage.setItem('currentUser',currentUser.userId)
-    role==='teachers'?navigator('/teacher/1'):navigator('/student/'+currentUser.userId)
+    localStorage.setItem('currentUser',currentUser.username)
+    setTimeout(
+    ()=>role==='teachers'?navigator('/teacher/1'):navigator('/student/'+currentUser.username),
+    5000
+    )
+    navigator('/welcome')
 
  }
 

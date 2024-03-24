@@ -7,6 +7,7 @@ import AbsentMarkdown from "./Pages/Absent/AbsentMarkdown.jsx"
 import Navbar from "./Common/Navbar.jsx"
 import LeaveTablePage from "./Pages/LeaveReuests/LeaveTablePage.jsx"
 import RegisterPage from "./Pages/Register/RegisterPage.jsx"
+import LoadingPage from "./Common/LoadingPage.jsx"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Navbar />
         <Routes>
             <Route path='/' element={<Login />} />
+            <Route path='/welcome' element={<LoadingPage />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/:role/:id' element={<Home />} />
             <Route path='/login/:role' element={<Login />} />
