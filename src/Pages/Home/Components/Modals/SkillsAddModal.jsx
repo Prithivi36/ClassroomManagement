@@ -9,10 +9,12 @@ function SkillsAddModal() {
   const {id}=useParams()
 
   function sendSkill(){
+    skill?
     postSkills(id,skill).then(
-      res=>console.log(res.data)
-    )
-    location.reload()
+      res=>{console.log(res.data)
+      location.reload()}
+    ):alert('Enter Some Skill')
+    
   }
   
   return (

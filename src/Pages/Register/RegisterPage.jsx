@@ -1,5 +1,5 @@
 import React from 'react'
-import { sendStudent } from '../../Api/StudentApi'
+import { registerStudent, sendStudent } from '../../Api/StudentApi'
 import { useNavigate } from 'react-router-dom'
 
 function RegisterPage() {
@@ -17,7 +17,8 @@ function RegisterPage() {
         motherNumber: '',
         bloodGroup: '',
         cgpa: '',
-        studentConcern: 0
+        studentConcern: 0,
+        password: ''
       })
 
       function handleChange(event){
@@ -29,6 +30,12 @@ function RegisterPage() {
 
       function handelSubmit(){
         sendStudent(student).then(res=>{
+            console.log(res.data)
+        })
+        registerStudent({
+            username:student.regNo,
+            password:student.password
+        }).then(res=>{
             console.log(res.data)
         })
 
@@ -101,6 +108,10 @@ function RegisterPage() {
                 <div className="form-group mt-3">
                     <label className="fw-bolder" htmlFor="cgpa">CGPA</label>
                     <input onChange={handleChange}  name='cgpa' type="number" className="form-control" id="cgpa" placeholder="Enter CGPA" />
+                </div>
+                <div className="form-group mt-3">
+                    <label className="fw-bolder" htmlFor="password">Password</label>
+                    <input onChange={handleChange}  name='password' type="password" className="form-control" id="password" placeholder="Enter Password" />
                 </div>
             </div>
             <button onClick={handelSubmit} className="btn btn-primary mt-5">Register</button>

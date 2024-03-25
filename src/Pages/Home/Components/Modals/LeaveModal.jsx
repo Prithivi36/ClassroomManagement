@@ -34,8 +34,12 @@ function LeaveModal() {
 
   function handleSubmit(){
     postRequest(permissionDetail).then(
-      res=>console.log(res.data)
-    )
+      res=>{console.log(res.data)
+      location.reload()}
+    ).catch(err=>{
+      alert(err.response.data.message)
+    })
+    
   }
 
 

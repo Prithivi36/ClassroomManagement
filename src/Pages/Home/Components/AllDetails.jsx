@@ -1,7 +1,7 @@
 import React from 'react'
 import ConcernModal from './Modals/ConcernModal'
 import LeaveModal from './Modals/LeaveModal'
-import AchievementAddModal from './Modals/AchievementAddModal'
+import StatusModal from './Modals/StatusModal'
 import SkillsAddModal from './Modals/SkillsAddModal'
 import { getStudent } from '../../../Api/StudentApi'
 import PersonalDetail from './Table/PersonalDetail'
@@ -29,7 +29,7 @@ function AllDetails() {
         <button data-bs-toggle='modal' data-bs-target='#SkillsAdd' className="btn btn-sm ms-2 btn-warning">+ Skills</button>
         <ConcernModal merit={selectedStudent.studentConcern}  />
         <LeaveModal />
-        <AchievementAddModal request={selectedStudent.leaveOrOdRequests} />
+        <StatusModal request={selectedStudent.leaveOrOdRequests} />
         <SkillsAddModal />
         <div className="card p-3 p-md-5 mt-3">
             <PersonalDetail fatherNumber={selectedStudent.fatherNumber} motherNumber={selectedStudent.motherNumber} bloodGroup={selectedStudent.bloodGroup} cgpa={selectedStudent.cgpa} />

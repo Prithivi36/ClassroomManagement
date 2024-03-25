@@ -12,7 +12,11 @@ function MetaInfoCard() {
     ()=>{
       getAllStudent().then(
         res=>setMetaInfo(res.data)
-      ).catch(err=>alert('You are Not Authorized'))
+      ).catch(err=>{alert('You are Not Authorized')
+        navigator('/')
+        localStorage.removeItem('token')
+        localStorage.removeItem('currentUser')
+    })
     },[]
   )
 

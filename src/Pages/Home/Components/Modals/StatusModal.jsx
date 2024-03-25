@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 import { getLeaveRequestByDate } from '../../../../Api/StudentApi'
 import { useParams } from 'react-router-dom'
 
-function AchievementAddModal(props) {
+function StatusModal(props) {
 
   const [recieved,setRecieved]=React.useState(null)
   const [date,setDate]=React.useState(0)
@@ -53,4 +53,4 @@ function AchievementAddModal(props) {
   )
 }
 
-export default AchievementAddModal
+export default StatusModal

@@ -2,6 +2,7 @@ import axios from "axios";
 
 const Baseurl="http://localhost:8080/"
 
+
 axios.interceptors.request.use(function(config){
     config.headers['Authorization']=localStorage.getItem("token")
     return config;
@@ -84,12 +85,21 @@ export function registerStudent(studentInfo){
     return axios.post(Baseurl+'auth/register/student',studentInfo)
 }
 
-export function loginStudent(studentInfo){
+export function loginStudent(studentInfo ,roles){
     axios.post(Baseurl+'auth/get',studentInfo)
     .then(res=>{
         console.log(studentInfo),
         console.log(res.data),
         localStorage.setItem('token',"Bearer "+res.data)
-    })
+        setTimeout(
+            ()=>roles==='teachers'?location.href='/teacher/1':location.href='/student/'+studentInfo.username,
+            5000
+            )
+    }).catch(
+        err=>alert(err.response.data.message)
+    )
 }
 
+export function registerteacher(userDetails){
+    return axios.post(Baseurl+'auth/register/teacher',userDetails)
+}

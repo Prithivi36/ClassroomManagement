@@ -2,7 +2,6 @@ import React from 'react'
 import Prithivi from '../Images/Profile.png'
 import RegularInfoTable from './Table/RegularInfoTable'
 import SkillsModal from './Modals/SkillsModal'
-import AchievementsModal from './Modals/AchievementsModal'
 import { getStudent } from '../../../Api/StudentApi'
 import { useParams } from 'react-router-dom'
 
@@ -28,7 +27,6 @@ function Info() {
             <i className="bi bi-pencil"></i>
             </button>
             <SkillsModal skills={selectedStudent.studentSkills} />
-            <AchievementsModal/>
           </div>
         </div>
         <div className="card mt-2 ms-2 p-4 justify-content-center ">

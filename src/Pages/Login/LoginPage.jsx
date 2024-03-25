@@ -21,21 +21,16 @@ function Login() {
   })
  }
 
+ const {role}=useParams()
+ const [nav,setnav]=React.useState(false)
  function handleSubmit(){
-    loginStudent(currentUser)
+    loginStudent(currentUser,role)
     localStorage.setItem('currentUser',currentUser.username)
-    setTimeout(
-    ()=>role==='teachers'?navigator('/teacher/1'):navigator('/student/'+currentUser.username),
-    5000
-    )
-    navigator('/welcome')
-
+    
  }
 
 
   //front end Role defenitions
-  const {role}=useParams()
-  const [nav,setnav]=React.useState(false)
   function toggleNav(){
     setnav(!nav)
   }
@@ -60,9 +55,13 @@ function Login() {
         <i className="bi bi-hospital-fill"></i>
           <p>Classroom</p>
         </div>
-        <div onClick={()=>navigator('/absent')} className=" ms-3 d-flex flex-column justify-content-center align-items-center">
+        <div onClick={()=>navigator('/credentials')} className=" ms-3 d-flex flex-column justify-content-center align-items-center">
         <i className="bi bi-calendar-check-fill"></i>
-          <p>Absent</p>
+          <p>Attendance</p>
+        </div>
+        <div onClick={()=>navigator('/credentials')} className=" ms-3 d-flex flex-column justify-content-center align-items-center">
+        <i className="bi bi-mortarboard-fill"></i>
+          <p>Rep</p>
         </div>
     </div>:''}
 
