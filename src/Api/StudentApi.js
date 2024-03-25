@@ -91,12 +91,14 @@ export function loginStudent(studentInfo ,roles){
         console.log(studentInfo),
         console.log(res.data),
         localStorage.setItem('token',"Bearer "+res.data)
+        roles==='absent'?location.href='/absent':
         setTimeout(
-            ()=>roles==='teachers'?location.href='/teacher/1':location.href='/student/'+studentInfo.username,
+            ()=>{roles==='teachers'?location.href='/teacher/1':location.href='/student/'+studentInfo.username,
             5000
+        }
             )
     }).catch(
-        err=>alert(err.response.data.message)
+        err=>alert(err.response.data.message||'Invalid Password')
     )
 }
 

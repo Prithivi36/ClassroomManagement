@@ -1,15 +1,17 @@
 import React from 'react'
 import { changeStatus, deleteStatus, getAllLeaveRequest } from '../../Api/StudentApi'
+import { useNavigate } from 'react-router-dom'
 
 
 function LeaveTablePage() {
     const [allRequest,setAllRequest]=React.useState([])
-  
+    const navigator=useNavigate()
     React.useEffect(
       ()=>{
         getAllLeaveRequest().then(
           res=>setAllRequest(res.data)
-        )
+        ).catch(err=>{alert(err.response.data.message)
+        navigator('/')})
       },[]
     )
   

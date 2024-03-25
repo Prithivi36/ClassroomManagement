@@ -1,18 +1,32 @@
 import React from 'react';
-import { sendAbsent, sendOnDuty } from '../../Api/StudentApi';
+import { getAllStudent, sendAbsent, sendOnDuty } from '../../Api/StudentApi';
 import AbsentByDateModal from './Modals/AbsentByDateModal';
 import AbsentByHour from './Modals/AbsentByHour';
+import { useNavigate } from 'react-router-dom';
 
 function AbsentMarkdown() {
     const studentsNumbers = [];
+    const [metaInfo,setMetaInfo]=React.useState([])
     const [selectedAbsent, setSelectedAbsent] = React.useState(new Set());
     const [selectedOnDuty, setSelectedOnDuty] = React.useState(new Set());
     const [outGoingAbsent,setOutGoingAbsent]=React.useState({
         incomingList:[]
     })
-        const [outGoingOnDuty,setOutGoingOnDuty]=React.useState({
+    const [outGoingOnDuty,setOutGoingOnDuty]=React.useState({
         incomingList:[]
     })
+    const navigator=useNavigate()
+    React.useEffect(
+        ()=>{
+          getAllStudent().then(
+            res=>setMetaInfo(res.data)
+          ).catch(err=>{alert('You are Not Authorized')
+            navigator('/')
+            localStorage.removeItem('token')
+            localStorage.removeItem('currentUser')
+        })
+        },[]
+      )
 
     function sendList(){
         sendAbsent(outGoingAbsent).then(

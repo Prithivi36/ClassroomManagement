@@ -16,7 +16,7 @@ function LoginCred() {
   }
   function handleSubmit(){
     loginStudent(user,'absent')
-    localStorage.setItem('currentUser',currentUser.username)
+    localStorage.setItem('currentUser',user.username)
   }
 
   return (
