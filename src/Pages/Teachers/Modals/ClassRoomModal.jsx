@@ -5,7 +5,8 @@ import { loginStudent, sendFiles } from '../../../Api/StudentApi'
 function ClassRoomModal() {
 
   const [dataStruct,setDataStruct]=React.useState([])
-
+  const [subject,setSubject]=React.useState('')
+  const [sem,setSem]=React.useState('')
   const [file,setFile]=React.useState(null)
 
   function handelFileChange(event){
@@ -14,7 +15,7 @@ function ClassRoomModal() {
   function handleSubmit(){
     const formData=new FormData();
     formData.append('file',file[0])
-    sendFiles(formData).then(
+    sendFiles(formData,sem,subject).then(
       res=>console.log(res.data)
     )
   }
@@ -26,19 +27,18 @@ function ClassRoomModal() {
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body">
-                <select className='form-select' name="semSelector" id="semSelector">
+                <select onChange={(event)=>setSem(event.target.value)} className='form-select' name="semSelector" id="semSelector">
                   <option value="">Choose Semester</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
+                  <option value="Semester1">1</option>
+                  <option value="Semester2">2</option>
+                  <option value="Semester3">3</option>
                 </select>
-                <select className='form-select mt-3' name="subjectSelector" id="subjectSelector">
+                <select onChange={(event)=>setSubject(event.target.value)} className='form-select mt-3' name="subjectSelector" id="subjectSelector">
                   <option value="">Choose Subject</option>
-                  <option value="1">AI</option>
-                  <option value="2">DBMS</option>
-                  <option value="3">C</option>
-                  <option value="4">R</option>
+                  <option value="AI">AI</option>
+                  <option value="DBMS">DBMS</option>
+                  <option value="C">C</option>
+                  <option value="R">R</option>
                 </select>
 
                 <input onChange={handelFileChange} type="file" className="custom-file-input mt-3" />

@@ -7,7 +7,6 @@ import AbsentMarkdown from "./Pages/Absent/AbsentMarkdown.jsx"
 import Navbar from "./Common/Navbar.jsx"
 import LeaveTablePage from "./Pages/LeaveReuests/LeaveTablePage.jsx"
 import RegisterPage from "./Pages/Register/RegisterPage.jsx"
-import LoadingPage from "./Common/LoadingPage.jsx"
 import LoginCred from "./Pages/credential/LoginCred.jsx"
 import Admin from "./Pages/Admin/Admin.jsx"
 import AdminRedirect from "./Pages/Admin/AdminRedirect.jsx"
@@ -23,7 +22,6 @@ function App() {
             <Route path='/credentials' element={<LoginCred />} />
             <Route path='/admin' element={<AdminRedirect />} />
             <Route path='/adminPanel' element={<Admin />} />
-            <Route path='/welcome' element={<LoadingPage />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/:role/:id' element={<Home />} />
             <Route path='/login/:role' element={<Login />} />

@@ -1,7 +1,7 @@
 export {Dummydata}
 const Dummydata={
-        sem1:{
-            maths:[
+        Semester1:{
+            Maths:[
             {
                 name:'file1',
                 type:'pdf',
@@ -18,7 +18,7 @@ const Dummydata={
                 content:'xyz.pdf'
             },
         ],
-        physics:[
+        Physics:[
             {
                 name:'file1',
                 type:'pdf',
@@ -35,7 +35,7 @@ const Dummydata={
                 content:'xyz.pdf'
             },
         ],
-        chemistry:[
+        Chemistry:[
             {
                 name:'file1',
                 type:'pdf',
@@ -69,7 +69,7 @@ const Dummydata={
                 content:'xyz.pdf'
             },
         ]},
-        sem2:{
+        Semester2:{
             English:[
                 {
                     name:'file1',
@@ -139,7 +139,7 @@ const Dummydata={
                 },
             ],
         },
-        sem3:{
+        Semester3:{
             AI:[
                 {
                     name:'file1',

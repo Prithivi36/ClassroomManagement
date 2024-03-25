@@ -80,6 +80,9 @@ export function sendFiles(formData,semDetail,subjectDetail){
       }
     )
 }
+export function getFiles(semDetail,subjectDetail){
+    return  axios.post(Baseurl+'files/'+semDetail+'/'+subjectDetail)
+}
 
 export function registerStudent(studentInfo){
     return axios.post(Baseurl+'auth/register/student',studentInfo)
