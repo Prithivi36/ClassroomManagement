@@ -36,7 +36,8 @@ function AbsentMarkdown() {
         )
         sendOnDuty(outGoingOnDuty).then(
             res=>{
-                console.log()
+                console.log(res.data)
+                
             }
         )
         location.reload()
@@ -70,8 +71,8 @@ function AbsentMarkdown() {
         selectedOnDuty.has(student)
     }
 
-
-    for (let i = 710722243001; i < 710722243065; i++) {
+    metaInfo.map((info)=>{
+        const i=info.regNo
         studentsNumbers.push(
             <div
                 key={i}
@@ -88,7 +89,11 @@ function AbsentMarkdown() {
                 </div>
            </div>
         );
-    }
+    })
+
+    
+        
+    
 
 
     return (

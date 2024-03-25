@@ -8,6 +8,7 @@ function Navbar(props) {
     localStorage.removeItem('currentUser')
     localStorage.removeItem('token')
     navigator('/')
+    setTimeout(location.reload(),15000)
   }
 
 

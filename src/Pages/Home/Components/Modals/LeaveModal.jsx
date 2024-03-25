@@ -1,5 +1,6 @@
 import React from 'react'
 import { getStudent,postRequest } from '../../../../Api/StudentApi'
+import { useParams } from 'react-router-dom'
 
 function LeaveModal() {
 
@@ -10,10 +11,10 @@ function LeaveModal() {
     date:'',
     reason:''
   })
-
+  const {id}=useParams()
   React.useEffect(
     ()=>{
-      getStudent(localStorage.getItem('currentUser')).then(
+      getStudent(id).then(
         res=>setPermissionDetail((prev)=>{
           return({...prev,
             studentId:res.data.regNo,

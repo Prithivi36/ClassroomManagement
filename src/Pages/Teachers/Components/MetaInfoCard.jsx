@@ -52,6 +52,7 @@ function MetaInfoCard() {
         setSkills('')}} className="btn  btn-secondary">clear</button>}
       <input value={skill} onChange={(event)=>setSkills(event.target.value)} className='w-50 ms-3 form-control' placeholder='Search By Skill' type="text" />
     </div>
+    <p className='my-3 fw-bolder'>Total Students : <span className='fw-medium'>{metaCards.length}</span></p>
     {metaCards}
     </>
   )

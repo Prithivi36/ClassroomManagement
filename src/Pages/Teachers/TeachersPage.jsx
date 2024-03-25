@@ -4,17 +4,19 @@ import ClassRoomModal from './Modals/ClassRoomModal'
 import ReqModal from './Modals/ReqModal'
 import ConcMark from './Modals/ConcMark'
 import MetaInfoCard from './Components/MetaInfoCard'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import RepMark from './Modals/RepMark'
 
 function Teachers() {
   const navigator=useNavigate()
+  const {id}=useParams()
   return (
     
   <div className="d-sm-flex justify-content-around">
 
     <div className="card flex-row justify-content-around px-4 m-4 py-5">
           <div className="">
-              <h2 className='fw-bolder'> Logged in as Mr.Jhon</h2>
+              <h2 className='fw-bolder'> Logged in as {id}</h2>
               <p>Department of Physics</p>
               <button data-bs-toggle='modal' data-bs-target='#addMat' className="btn btn-primary d-block mb-2">+Add to ClassRoom</button>
               <ClassRoomModal/>
@@ -22,6 +24,8 @@ function Teachers() {
               
               <button data-bs-toggle='modal' data-bs-target='#markConc' className="btn btn-danger d-block mb-2">+ Mark Concerns</button>
               <ConcMark />
+              <button data-bs-toggle='modal' data-bs-target='#markRep' className="btn btn-warning d-block mb-2">+ Assign Rep</button>
+              <RepMark />
           </div>
           <img style={{width:'130px',height:'130px'}} className='img-fluid' src={Prithivi} alt="" />
       </div>

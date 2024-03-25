@@ -17,7 +17,7 @@ function LeaveTablePage() {
   
     const requests=allRequest.map((req)=>{
       
-      return(
+      return(req.denied?'':
         <tr key={req.id} >
           <td className={req.type==='od'?'bg-success':'bg-dark'} >{req.studentId}</td>
           <td>{req.studentName}</td>
@@ -38,7 +38,6 @@ function LeaveTablePage() {
         </tr>
       )
     })
-  console.log(allRequest)
     return (
       <div className="table-responsive">
         <table className='table table-dark table-bordered'>

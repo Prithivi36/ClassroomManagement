@@ -20,18 +20,18 @@ function StatusModal(props) {
     const id=nanoid()
     return(
       <div  key={id} className="card m-1 p-2">
-        <p>Date : {req.date}</p>
-        <p>Reason : {req.reason}</p>
-        <p>Status : {req.status?'Accepted':'Denied'}</p>
+        <p className={req.denied?'text-danger':req.status?'text-success':'text-warning'} ><span className='fw-bolder text-dark' >Date :</span> {req.date}</p>
+        <p className={req.denied?'text-danger':req.status?'text-success':'text-warning'} ><span className='fw-bolder text-dark' >Reason :</span> {req.reason}</p>
+        <p className={req.denied?'text-danger':req.status?'text-success':'text-warning'} ><span className='fw-bolder text-dark' >Status :</span> {req.denied?'Denied':req.status?'Accepted':'Processing'}</p>
       </div>
     )
   }):props.request?props.request.map((req)=>{
     const id=nanoid()
     return(
         <div  key={id} className="card m-1 p-2">
-            <p>Date : {req.date}</p>
-            <p>Reason : {req.reason}</p>
-            <p>Status : {req.status?'Accepted':'Denied'}</p>
+            <p className={req.denied?'text-danger':req.status?'text-success':'text-warning'} ><span className='fw-bolder text-dark' >Date :</span> {req.date}</p>
+            <p className={req.denied?'text-danger':req.status?'text-success':'text-warning'} ><span className='fw-bolder text-dark' >Reason :</span> {req.reason}</p>
+            <p className={req.denied?'text-danger':req.status?'text-success':'text-warning'} ><span className='fw-bolder text-dark' >Status :</span> {req.denied?'Denied':req.status?'Accepted':'Processing'}</p>
         </div>
     )
   }):''

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Baseurl="http://localhost:8080/"
+const Baseurl="http://13.126.17.188:8080/"
 
 
 axios.interceptors.request.use(function(config){
@@ -92,8 +92,9 @@ export function loginStudent(studentInfo ,roles){
         console.log(res.data),
         localStorage.setItem('token',"Bearer "+res.data)
         roles==='absent'?location.href='/absent':
+        roles==='admin'?location.href='/adminPanel':
         setTimeout(
-            ()=>{roles==='teachers'?location.href='/teacher/1':location.href='/student/'+studentInfo.username,
+            ()=>{roles==='teachers'?location.href='/teacher/'+studentInfo.username:location.href='/student/'+studentInfo.username,
             5000
         }
             )
@@ -104,4 +105,7 @@ export function loginStudent(studentInfo ,roles){
 
 export function registerteacher(userDetails){
     return axios.post(Baseurl+'auth/register/teacher',userDetails)
+}
+export function registerRep(userDetails){
+    return axios.put(Baseurl+'auth/register/rep/'+userDetails)
 }
