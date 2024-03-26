@@ -30,14 +30,15 @@ function RegisterPage() {
 
       function handelSubmit(){
         sendStudent(student).then(res=>{
-            console.log(res.data)
-        })
-        registerStudent({
-            username:student.regNo,
-            password:student.password
-        }).then(res=>{
-            console.log(res.data)
-        })
+            console.log(res.data),
+            registerStudent({
+                username:student.regNo,
+                password:student.password
+            }).then(res=>{
+                console.log(res.data)
+            }).catch(err=>alert("Error in creating user details"))
+        }).catch(err=>alert("You have entered some incompatible Details Check again"))
+        
 
         navigator('/')
       }

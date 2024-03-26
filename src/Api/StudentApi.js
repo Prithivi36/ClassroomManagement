@@ -81,7 +81,10 @@ export function sendFiles(formData,semDetail,subjectDetail){
     )
 }
 export function getFiles(semDetail,subjectDetail){
-    return  axios.post(Baseurl+'files/'+semDetail+'/'+subjectDetail)
+    return  axios.get(Baseurl+'files/'+semDetail+'/'+subjectDetail)
+}
+export function downloadFiles(semDetail,subjectDetail,File){
+    return  axios.get(Baseurl+'download/'+semDetail+'/'+subjectDetail+'/'+File)
 }
 
 export function registerStudent(studentInfo){

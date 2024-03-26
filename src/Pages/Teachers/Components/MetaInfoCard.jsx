@@ -23,7 +23,7 @@ function MetaInfoCard() {
   function getRecieved(){
     getStudentBySkill(skill).then(res=>setRecieved(res.data)
     
-    ).catch(err=>alert('You are Not Authorized'))
+    ).catch(err=>alert('No student found with skill'))
   }
   const metaCards=(recieved||metaInfo).map((info)=>{
     return(

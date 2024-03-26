@@ -1,7 +1,6 @@
 import React from 'react'
 import Prithivi from '../Home/Images/Profile.png'
 import ClassRoomModal from './Modals/ClassRoomModal'
-import ReqModal from './Modals/ReqModal'
 import ConcMark from './Modals/ConcMark'
 import MetaInfoCard from './Components/MetaInfoCard'
 import { useNavigate, useParams } from 'react-router-dom'

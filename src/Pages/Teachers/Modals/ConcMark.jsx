@@ -12,13 +12,21 @@ function ConcMark() {
 
   function increase(){
     meritIncrease(regNum).then(
-      res=>console.log(res.data)
-    )
+      res=>{console.log(res.data)
+      alert("Increased")
+      }
+    ).catch(err=>{
+      alert(err.response.data.message)
+    })
   }
   function decrease(){
     meritDecrease(regNum).then(
-      res=>console.log(res.data)
-    )
+      res=>{console.log(res.data)
+        alert("Decreased")
+        }
+    ).catch(err=>{
+      alert(err.response.data.message)
+    })
   }
 
   return (

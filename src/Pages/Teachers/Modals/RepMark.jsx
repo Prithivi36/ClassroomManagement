@@ -11,8 +11,9 @@ function RepMark() {
   
     function increase(){
       registerRep(regNum).then(
-        res=>console.log(res.data)
-      )
+        res=>{console.log(res.data)
+        alert('Success')}
+      ).catch(err=>alert('User '+err.response.data.message))
     }
     
   

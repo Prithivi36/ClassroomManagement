@@ -1,54 +1,55 @@
-import axios from 'axios'
-import React from 'react'
-import { loginStudent, sendFiles } from '../../../Api/StudentApi'
+import React from 'react';
+import { sendFiles } from '../../../Api/StudentApi';
+import { Dummydata } from '../../Classroom/Dummydata';
 
 function ClassRoomModal() {
+  const [subject, setSubject] = React.useState('');
+  const [sem, setSem] = React.useState('');
+  const [file, setFile] = React.useState(null);
 
-  const [dataStruct,setDataStruct]=React.useState([])
-  const [subject,setSubject]=React.useState('')
-  const [sem,setSem]=React.useState('')
-  const [file,setFile]=React.useState(null)
-
-  function handelFileChange(event){
-    setFile(event.target.files)
-  }
-  function handleSubmit(){
-    const formData=new FormData();
-    formData.append('file',file[0])
-    sendFiles(formData,sem,subject).then(
-      res=>console.log(res.data)
-    )
+  function handelFileChange(event) {
+    setFile(event.target.files);
   }
 
+  function handleSubmit() {
+    const formData = new FormData();
+    formData.append('file', file[0]);
+    console.log(sem,subject)
+    sendFiles(formData, sem, subject).then(
+      res => console.log(res.data)
+    );
+  }
 
   return (
     <>
-        <div id='addMat' className="modal fade">
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-body">
-                <select onChange={(event)=>setSem(event.target.value)} className='form-select' name="semSelector" id="semSelector">
-                  <option value="">Choose Semester</option>
-                  <option value="Semester1">1</option>
-                  <option value="Semester2">2</option>
-                  <option value="Semester3">3</option>
-                </select>
-                <select onChange={(event)=>setSubject(event.target.value)} className='form-select mt-3' name="subjectSelector" id="subjectSelector">
+      <div id='addMat' className="modal fade">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-body">
+              <select onChange={(event) => setSem(event.target.value)} className='form-select' name="semSelector" id="semSelector">
+                <option value="">Choose Semester</option>
+                <option value="Semester1">1</option>
+                <option value="Semester2">2</option>
+                <option value="Semester3">3</option>
+                <option value="Semester4">4</option> 
+              </select>
+              {sem && (
+                <select onChange={(event) => setSubject(event.target.value)} className='form-select mt-3' name="subjectSelector" id="subjectSelector">
                   <option value="">Choose Subject</option>
-                  <option value="AI">AI</option>
-                  <option value="DBMS">DBMS</option>
-                  <option value="C">C</option>
-                  <option value="R">R</option>
+                  {Dummydata[sem] && Object.keys(Dummydata[sem]).map((subject, index) => (
+                    <option key={index} value={subject}>{subject}</option>
+                  ))}
                 </select>
+              )}
 
-                <input onChange={handelFileChange} type="file" className="custom-file-input mt-3" />
-                <button onClick={handleSubmit}>Send</button>
-              </div>
+              <input onChange={handelFileChange} type="file" className="custom-file-input btn btn-dark d-block mb-3 mt-3" />
+              <button className='btn btn-primary' onClick={handleSubmit}>Send</button>
             </div>
           </div>
         </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default ClassRoomModal
+export default ClassRoomModal;
