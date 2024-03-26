@@ -15,7 +15,6 @@ function AdminRedirect() {
       }
       function handleSubmit(){
         loginStudent(user,'admin')
-        localStorage.setItem('currentUser',user.username)
       }
     
       return (

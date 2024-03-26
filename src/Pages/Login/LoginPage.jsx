@@ -11,6 +11,23 @@ function Login() {
   password:''
  })
 
+ const {role}=useParams()
+ const [nav,setnav]=React.useState(false)
+//utils
+const navigator=useNavigate()
+
+React.useEffect(
+  ()=>{
+    const userFound = JSON.parse(localStorage.getItem('currentUser'))
+    console.log(userFound)
+    userFound?navigator('/'+userFound.roleInfo+'/'+userFound.username):''
+  }
+)
+
+ function handleSubmit(){
+    loginStudent(currentUser,role)
+    localStorage.setItem('currentUser', JSON.stringify({ username: currentUser.username, roleInfo: role?role:'student' }))    
+ }
  //formData
  function handleChange(event){
   const{name,value}=event.target
@@ -21,22 +38,12 @@ function Login() {
   })
  }
 
- const {role}=useParams()
- const [nav,setnav]=React.useState(false)
- function handleSubmit(){
-    loginStudent(currentUser,role)
-    localStorage.setItem('currentUser',currentUser.username)
-    
- }
-
-
   //front end Role defenitions
   function toggleNav(){
     setnav(!nav)
   }
 
- //utils
- const navigator=useNavigate()
+
 
     return (
     <>

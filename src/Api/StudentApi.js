@@ -97,7 +97,7 @@ export function loginStudent(studentInfo ,roles){
         roles==='absent'?location.href='/absent':
         roles==='admin'?location.href='/adminPanel':
         setTimeout(
-            ()=>{roles==='teachers'?location.href='/teacher/'+studentInfo.username:location.href='/student/'+studentInfo.username,
+            ()=>{roles==='teachers'?location.href='/teachers/'+studentInfo.username:location.href='/student/'+studentInfo.username,
             5000
         }
             )
