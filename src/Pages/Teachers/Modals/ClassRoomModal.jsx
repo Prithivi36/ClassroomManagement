@@ -14,10 +14,9 @@ function ClassRoomModal() {
   function handleSubmit() {
     const formData = new FormData();
     formData.append('file', file[0]);
-    console.log(sem,subject)
     sendFiles(formData, sem, subject).then(
-      res => console.log(res.data)
-    );
+      res => console.log(res.data),location.reload()
+    ).catch(err=>alert(err.response.data.message?err.response.data.message:'File upload unsuccessful'));
   }
 
   return (

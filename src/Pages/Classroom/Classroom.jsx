@@ -13,6 +13,12 @@ const [filesData,setFilesData]=React.useState([])
 const file=Object.keys(Dummydata)
      const navigator=useNavigate()
 
+     React.useEffect(
+        ()=>{
+     getFiles(semester,sub).then(res=>setFilesData(res.data)).catch(err=>alert(err.response.data.message))
+        },[semester,sub]
+     )
+
 let semElements;
     if(!semester){
         semElements=file.map((sem)=>{
@@ -35,14 +41,12 @@ let semElements;
         }))
     }
     else if(semester&&sub){
-        getFiles(semester,sub).then(res=>setFilesData(res.data)).catch(err=>alert(err.response.data.message))
-        const files=(Dummydata[semester][sub])
         semElements= (filesData.map((file)=>{
             return(
-                <div key={filesData} onClick={()=>downloadFiles(semester,sub,filesData)} className="card align-items-center mx-3 p-3">
+                <a target='_blank' href={`http://13.126.17.188:8080/download/${semester}/${sub}/${file}`} key={file}  className="card align-items-center mx-3 p-3">
                     <img className='img-fluid' src={File} width={'100px'}/>
-                     <p className='text-center fw-bolder'>{filesData}</p>
-                 </div>
+                     <p className='text-center fw-bolder'>{file}</p>
+                 </a>
              )
          }))
     }
