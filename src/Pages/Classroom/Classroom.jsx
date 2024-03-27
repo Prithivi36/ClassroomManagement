@@ -23,7 +23,7 @@ let semElements;
     if(!semester){
         semElements=file.map((sem)=>{
         return(
-            <div key={sem} onClick={()=>{navigator('/classroom/'+sem)}} className="card col-1 align-items-center mx-3 p-3">
+            <div key={sem} onClick={()=>{navigator('/classroom/'+sem)}} className="card col-md-3  col-lg-2 mb-2 align-items-center mx-3 p-3">
                 <img className='img-fluid' src={Folder} width={'100px'}/>
                 <p className='text-center fw-bolder'>{sem}</p>
             </div>
