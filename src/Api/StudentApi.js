@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Baseurl="https://www.vcr.software:8080/"
+export const Baseurl="https://www.vcr.software:8080/"
 
 
 axios.interceptors.request.use(function(config){
