@@ -1,6 +1,10 @@
 import axios from "axios";
 
+<<<<<<< HEAD
 export const Baseurl="http://13.60.37.254:8080/"
+=======
+export const Baseurl="http://13.53.133.166:8080/"
+>>>>>>> a9d69737a1b5a635028595ea4a810e1921eed51e
 
 
 axios.interceptors.request.use(function(config){
