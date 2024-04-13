@@ -3,7 +3,7 @@ import {useNavigate,useParams} from 'react-router-dom'
 import {Dummydata} from './Dummydata'
 import Folder from './Folder.webp'
 import File from './Pdf.webp'
-import { downloadFiles, getFiles } from '../../Api/StudentApi'
+import { downloadFiles, getFiles,Baseurl } from '../../Api/StudentApi'
 
 function Classroom() {
 const {semester}=useParams()
@@ -43,7 +43,7 @@ let semElements;
     else if(semester&&sub){
         semElements= (filesData.map((file)=>{
             return(
-                <a target='_blank' href={`http://13.126.17.188:8080/download/${semester}/${sub}/${file}`} key={file}  className="card align-items-center mx-3 p-3">
+                <a target='_blank' href={`${Baseurl}download/${semester}/${sub}/${file}`} key={file}  className="card align-items-center mx-3 p-3">
                     <img className='img-fluid' src={File} width={'100px'}/>
                      <p className='text-center fw-bolder'>{file}</p>
                  </a>
