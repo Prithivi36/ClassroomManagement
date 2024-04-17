@@ -1,5 +1,5 @@
 import Home from "./Pages/Home/Home"
-import {Routes ,BrowserRouter,Route} from 'react-router-dom'
+import {Routes ,BrowserRouter,Route, HashRouter} from 'react-router-dom'
 import Login from "./Pages/Login/LoginPage.jsx"
 import Teachers from "./Pages/Teachers/TeachersPage.jsx"
 import Classroom from "./Pages/Classroom/Classroom.jsx"
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter >
+      <HashRouter >
           <Navbar getUser={localStorage.getItem('currentUser')} />
         <Routes>
             <Route path='/' element={<Login />} />
@@ -32,7 +32,7 @@ function App() {
             <Route path={'/absent'} element={<AbsentMarkdown />} />
             <Route path={'/allRequests'} element={<LeaveTablePage />} />
         </Routes>
-    </BrowserRouter>
+    </HashRouter>
     </>
   )
 }
