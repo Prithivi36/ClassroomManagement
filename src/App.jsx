@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <HashRouter >
+      <BrowserRouter >
           <Navbar getUser={localStorage.getItem('currentUser')} />
         <Routes>
             <Route path='/' element={<Login />} />
@@ -32,7 +32,7 @@ function App() {
             <Route path={'/absent'} element={<AbsentMarkdown />} />
             <Route path={'/allRequests'} element={<LeaveTablePage />} />
         </Routes>
-    </HashRouter>
+    </BrowserRouter>
     </>
   )
 }
