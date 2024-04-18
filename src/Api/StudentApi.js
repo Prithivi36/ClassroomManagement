@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-export const Baseurl="http://65.0.107.35:8080/"
+export const Baseurl="http://.0.107.35:8080/"
 
 
 
