@@ -16,7 +16,7 @@ function Teachers() {
     <div className="card flex-row justify-content-around px-4 m-4 py-5">
           <div className="">
               <h2 className='fw-bolder'> Logged in as {id}</h2>
-              <p>Department of Physics</p>
+              <p>Faculty login</p>
               <button data-bs-toggle='modal' data-bs-target='#addMat' className="btn btn-primary d-block mb-2">+Add to ClassRoom</button>
               <ClassRoomModal/>
               <button onClick={()=>navigator('/allRequests')} className="btn btn-success d-block mb-2">Check Requests</button>

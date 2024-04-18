@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-export const Baseurl="http://13.201.187.27:8080/"
+export const Baseurl="http://65.0.107.35:8080/"
 
 
 
@@ -99,10 +99,10 @@ export function loginStudent(studentInfo ,roles){
         console.log(studentInfo),
         console.log(res.data),
         localStorage.setItem('token',"Bearer "+res.data)
-        roles==='absent'?location.href='/absent':
-        roles==='admin'?location.href='/adminPanel':
+        roles==='absent'?location.href='/#/absent':
+        roles==='admin'?location.href='/#/adminPanel':
         setTimeout(
-            ()=>{roles==='teachers'?location.href='/teachers/'+studentInfo.username:location.href='/student/'+studentInfo.username,
+            ()=>{roles==='teachers'?location.href='/#/teachers/'+studentInfo.username:location.href='/#/student/'+studentInfo.username,
             5000
         }
             )
