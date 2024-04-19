@@ -22,11 +22,11 @@ function Admin() {
       return (
         <div style={{height:'100vh'}} className='d-flex justify-content-center align-items-center'>
           <div className="card px-3 py-4">
-            <h1 className="text-center my-3 fw-bolder">Create New Teacher Id</h1>
+            <h1 className="text-center my-3 fw-bolder">Genarate User</h1>
             <label htmlFor="name" className='fw-medium'>ID :</label>
-            <input name='username' onChange={handleChange} id='name' className='form-control' type="text" />
+            <input placeholder='Teacher Id ?' name='username' onChange={handleChange} id='name' className='form-control' type="text" />
             <label htmlFor="password" className='fw-medium mt-4'>Password</label>
-            <input name='password' onChange={handleChange} id='password' className='form-control'  type="password" />
+            <input placeholder='Tecaher Password ?' name='password' onChange={handleChange} id='password' className='form-control'  type="password" />
     
     
             <button onClick={handleSubmit} className='btn btn-primary mt-4'>Login</button>

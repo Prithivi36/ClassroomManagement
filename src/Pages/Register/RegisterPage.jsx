@@ -3,9 +3,9 @@ import { registerStudent, sendStudent } from '../../Api/StudentApi'
 import { useNavigate } from 'react-router-dom'
 
 function RegisterPage() {
-    const navigator=useNavigate()
+    const navigator = useNavigate()
 
-    const [student,setStudent]=React.useState({
+    const [student, setStudent] = React.useState({
         regNo: '',
         studentName: '',
         branch: '',
@@ -17,32 +17,44 @@ function RegisterPage() {
         motherNumber: '',
         bloodGroup: '',
         cgpa: '',
-        studentConcern: 0,
+        studentConcern: 5,
         password: ''
-      })
+    })
 
-      function handleChange(event){
-        const {name,value}=event.target
-        setStudent((prev)=>{
-            return({...prev,[name]:value})
+    function handleChange(event) {
+        const { name, value } = event.target
+        setStudent((prev) => {
+            return { ...prev, [name]: value }
         })
-      }
+    }
 
-      function handelSubmit(){
-        sendStudent(student).then(res=>{
-            console.log(res.data),
-            registerStudent({
-                username:student.regNo,
-                password:student.password
-            }).then(res=>{
+    function validateForm() {
+        const requiredFields = ['regNo', 'studentName', 'branch', 'phone', 'mail', 'fatherNumber', 'motherNumber', 'bloodGroup', 'cgpa', 'password']
+        return requiredFields.every(field => student[field].trim() !== '')
+    }
+
+    function handelSubmit() {
+        if (!validateForm()) {
+            alert('Please fill out all required fields.')
+            return
+        }
+
+        sendStudent(student)
+            .then(res => {
                 console.log(res.data)
-            }).catch(err=>alert("Error in creating user details"))
-        }).catch(err=>alert("You have entered some incompatible Details Check again"))
-        
+                registerStudent({
+                    username: student.regNo,
+                    password: student.password
+                })
+                    .then(res => {
+                        console.log(res.data)
+                    })
+                    .catch(err => alert("Error in creating user details"))
+            })
+            .catch(err => alert("You have entered some incompatible Details. Check again"))
 
         navigator('/')
-      }
-      console.log(student)
+    }
   return (
     <div className='d-flex justify-content-center align-items-center'>
         <div className="card my-3 mx-3 mx-md-0 p-5">

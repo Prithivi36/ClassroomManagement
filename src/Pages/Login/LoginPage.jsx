@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { loginStudent } from '../../Api/StudentApi'
-
+import vite from '../../../public/vite.svg'
 
 
 function Login() {
@@ -74,7 +74,11 @@ React.useEffect(
 
     <div style={{height:'100vh'}} className='d-flex justify-content-center align-items-center'>
       <div className="card px-3 py-4">
-        <h1 className="text-center my-3 fw-bolder">{role==='teachers'?'Teacher Login':'Student Login'}</h1>
+        <div className="d-flex align-items-center justify-content-center">
+          <img src={vite} alt="" />
+          <h3 className="text-center ms-2 my-3 fw-bolder">VCR</h3>
+        </div>
+        <h5 className='fw-bolder my-3'>{role==='teachers'?'Teacher login':'Student login'}</h5>
         <label htmlFor="name" className='fw-medium'>{role==='teachers'?'Teacher ID':'Student Reg. No'}</label>
         <input placeholder='Enter Register number' name='username' onChange={handleChange} id='name' className='form-control' type="text" />
         <label htmlFor="password" className='fw-medium mt-4'>Password</label>
