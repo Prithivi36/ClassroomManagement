@@ -1,5 +1,6 @@
 import React from 'react'
 import { loginStudent } from '../../Api/StudentApi'
+import vite from '../../../public/vite.svg'
 
 function AdminRedirect() {
     const [user,setUser]=React.useState({
@@ -20,6 +21,10 @@ function AdminRedirect() {
       return (
         <div style={{height:'100vh'}} className='d-flex justify-content-center align-items-center'>
           <div className="card px-3 py-4">
+          <div className="d-flex align-items-center justify-content-center">
+            <img src={vite} alt="" />
+            <h3 className="text-center ms-2 my-3 fw-bolder">VCR</h3>
+          </div>
             <h1 className="text-center my-3 fw-bolder">Admin Login</h1>
             <label htmlFor="name" className='fw-medium'>ID :</label>
             <input placeholder='Admin name' name='username' onChange={handleChange} id='name' className='form-control' type="text" />
