@@ -11,7 +11,7 @@ function SkillsAddModal() {
   function sendSkill(){
     skill?
     postSkills(id,skill).then(
-      res=>{console.log(res.data)
+      res=>{
       location.reload()}
     ):alert('Enter Some Skill')
     

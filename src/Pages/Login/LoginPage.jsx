@@ -19,7 +19,6 @@ const navigator=useNavigate()
 React.useEffect(
   ()=>{
     const userFound = JSON.parse(localStorage.getItem('currentUser'))
-    console.log(userFound)
     userFound?navigator('/'+userFound.roleInfo+'/'+userFound.username):''
   }
 )

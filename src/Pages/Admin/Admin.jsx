@@ -15,7 +15,7 @@ function Admin() {
         })
       }
       function handleSubmit(){
-        registerteacher(user).then(res=>{console.log(res.data),navigator('/')}).catch(err=>{alert('You are not admin'),navigator('/')})
+        registerteacher(user).then(res=>{navigator('/')}).catch(err=>{alert('You are not admin'),navigator('/')})
 
       }
     

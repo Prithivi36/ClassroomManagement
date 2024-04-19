@@ -41,7 +41,6 @@ function RegisterPage() {
 
         sendStudent(student)
             .then(res => {
-                console.log(res.data)
                 registerStudent({
                     username: student.regNo,
                     password: student.password

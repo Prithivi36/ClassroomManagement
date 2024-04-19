@@ -96,8 +96,6 @@ export function registerStudent(studentInfo){
 export function loginStudent(studentInfo ,roles){
     axios.post(Baseurl+'auth/get',studentInfo)
     .then(res=>{
-        console.log(studentInfo),
-        console.log(res.data),
         localStorage.setItem('token',"Bearer "+res.data)
         roles==='absent'?location.href='/#/absent':
         roles==='admin'?location.href='/#/adminPanel':

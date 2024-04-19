@@ -35,7 +35,7 @@ function LeaveModal() {
 
   function handleSubmit(){
     postRequest(permissionDetail).then(
-      res=>{console.log(res.data)
+      res=>{
       location.reload()}
     ).catch(err=>{
       alert(err.response.data.message)
@@ -44,7 +44,6 @@ function LeaveModal() {
   }
 
 
-console.log(permissionDetail)
   return (
     <div id='leaveModal' className="modal  fade">
       <div className="modal-dialog modal-dialog-centered">
