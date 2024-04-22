@@ -28,7 +28,7 @@ function AllDetails() {
         <button data-bs-toggle='modal' data-bs-target='#leaveModal' className="btn btn-sm me-2 my-1 btn-primary">+ Permission</button>
         <button data-bs-toggle='modal' data-bs-target='#StatusCheck'  className="btn btn-sm me-2 my-1 btn-success">Check Status</button>
         <button data-bs-toggle='modal' data-bs-target='#SkillsAdd' className="btn btn-sm me-2 my-1 btn-warning">+ Skills</button>
-        <button onClick={()=>navigator('/classroom')} className="btn btn-secondary">Classroom</button>
+        <button onClick={()=>navigator('/classroom')} className="btn btn-sm btn-secondary">Classroom</button>
         <ConcernModal merit={selectedStudent.studentConcern}  />
         <LeaveModal />
         <StatusModal request={selectedStudent.leaveOrOdRequests} />
