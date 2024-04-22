@@ -43,10 +43,10 @@ function Info() {
             <i className="bi bi-linkedin"></i>
             </a>
             }
-            {selectedStudent.instagram?<a href={selectedStudent.instagram} className="btn rounded-circle btn-danger">
-            <i className="bi bi-instagram"></i>
+            {selectedStudent.mail?<a href={`mailto:${selectedStudent.mail}`} className="btn rounded-circle btn-danger">
+            <i className="bi bi-envelope"></i>
             </a>:<a className="btn rounded-circle btn-danger">
-            <i className="bi bi-instagram"></i>
+            <i className="bi bi-envelope"></i>
             </a>}
             <a href={`tel:+91${selectedStudent.phone}`} className="btn rounded-circle btn-danger">
             <i className="bi bi-phone"></i>
