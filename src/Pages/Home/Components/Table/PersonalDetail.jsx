@@ -23,10 +23,10 @@ function PersonalDetail(props) {
                     <td>Blood Group</td>
                     <td>{props.bloodGroup}</td>
                 </tr>
-                <tr>
+                {/* <tr>
                     <td>CGPA</td>
                     <td>{props.cgpa}</td>
-                </tr>
+                </tr> */}
             </tbody>
         </table>
     </div>

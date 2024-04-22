@@ -49,7 +49,7 @@ function Info() {
             <i className="bi bi-envelope"></i>
             </a>}
             <a href={`tel:+91${selectedStudent.phone}`} className="btn rounded-circle btn-danger">
-            <i className="bi bi-phone"></i>
+            <i className="bi bi-telephone"></i>
             </a>
           </div>
         </div>
