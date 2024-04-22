@@ -25,7 +25,10 @@ function MetaInfoCard() {
     
     ).catch(err=>alert('No student found with skill'))
   }
-  const metaCards=(recieved||metaInfo).map((info)=>{
+
+  const sortedMetaInfo = [...metaInfo].sort((a, b) => a.regNo - b.regNo);
+  
+  const metaCards=(recieved||sortedMetaInfo).map((info)=>{
     return(
       <div key={info.id} onClick={()=>navigator('/student/'+info.regNo)} className="card flex-row mb-2 px-3 py-3">
         <table>

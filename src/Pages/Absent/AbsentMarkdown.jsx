@@ -70,26 +70,48 @@ function AbsentMarkdown() {
         return type==='absent'?selectedAbsent.has(student):
         selectedOnDuty.has(student)
     }
+// Sort metaInfo based on regNo
+const sortedMetaInfo = [...metaInfo].sort((a, b) => a.regNo - b.regNo);
 
-    metaInfo.map((info)=>{
-        const i=info.regNo
-        studentsNumbers.push(
-            <div
-                key={i}
-                className={`card p-3 mt-2 ${isSelected(i,'absent') ? 'bg-success text-light' :isSelected(i,'onDuty')? 'bg-primary text-light':'text-dark' }`}
-            >
-                {i}
-                <div className="">
-                <button onClick={()=>setselectedStudent(i,selectedAbsent,setSelectedAbsent)} className="btn me-2 mt-2 btn-sm btn-warning">
+sortedMetaInfo.map((info) => {
+    const i = info.regNo;
+    studentsNumbers.push(
+        <div
+            key={i}
+            className={`card p-3 mt-2 ${isSelected(i,'absent') ? 'bg-success text-light' : isSelected(i,'onDuty') ? 'bg-primary text-light' : 'text-dark'}`}
+        >
+            {i}
+            <div className="">
+                <button onClick={() => setselectedStudent(i, selectedAbsent, setSelectedAbsent)} className="btn me-2 mt-2 btn-sm btn-warning">
                     Absent
                 </button>
-                <button onClick={()=>setselectedStudent(i,selectedOnDuty,setSelectedOnDuty)} className="btn btn-sm mt-2 btn-warning">
+                <button onClick={() => setselectedStudent(i, selectedOnDuty, setSelectedOnDuty)} className="btn btn-sm mt-2 btn-warning">
                     OnDuty
                 </button>
-                </div>
-           </div>
-        );
-    })
+            </div>
+        </div>
+    );
+});
+
+    // metaInfo.map((info)=>{
+    //     const i=info.regNo
+    //     studentsNumbers.push(
+    //         <div
+    //             key={i}
+    //             className={`card p-3 mt-2 ${isSelected(i,'absent') ? 'bg-success text-light' :isSelected(i,'onDuty')? 'bg-primary text-light':'text-dark' }`}
+    //         >
+    //             {i}
+    //             <div className="">
+    //             <button onClick={()=>setselectedStudent(i,selectedAbsent,setSelectedAbsent)} className="btn me-2 mt-2 btn-sm btn-warning">
+    //                 Absent
+    //             </button>
+    //             <button onClick={()=>setselectedStudent(i,selectedOnDuty,setSelectedOnDuty)} className="btn btn-sm mt-2 btn-warning">
+    //                 OnDuty
+    //             </button>
+    //             </div>
+    //        </div>
+    //     );
+    // })
 
     
         
