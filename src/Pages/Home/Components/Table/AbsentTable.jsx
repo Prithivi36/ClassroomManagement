@@ -13,10 +13,10 @@ function AbsentTable(props) {
             )
         },[]
     )
-    const rows=absentList.map((day)=>{
+    const rows=absentList.map((day,index)=>{
         return(
             <tr key={day.id} >
-                    <td>{day.id}</td>
+                    <td>{index+1}</td>
                     <td>{day.date}</td>
                     <td>{day.hour}</td>
             </tr>

@@ -17,10 +17,10 @@ function OndutyTable() {
         },[]
     )
 
-    const rows=onDutyList.map((day)=>{
+    const rows=onDutyList.map((day,index)=>{
         return(
             <tr key={day.id} >
-                    <td>{day.id}</td>
+                    <td>{index+1}</td>
                     <td>{day.date}</td>
             </tr>
         )
