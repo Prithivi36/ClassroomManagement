@@ -1,15 +1,19 @@
 import React from 'react'
 import { changeStatus, deleteStatus, getAllLeaveRequest } from '../../Api/StudentApi'
 import { useNavigate } from 'react-router-dom'
+import loadingImg from '../../Common/Loading.gif'
 
 
 function LeaveTablePage() {
     const [allRequest,setAllRequest]=React.useState([])
+    const [loading ,setLoading]=React.useState(true)
     const navigator=useNavigate()
     React.useEffect(
       ()=>{
         getAllLeaveRequest().then(
-          res=>setAllRequest(res.data)
+          res=>{setAllRequest(res.data)
+          setLoading(false)
+          }
         ).catch(err=>{alert(err.response.data.message)
         navigator('/')})
       },[]
@@ -40,7 +44,11 @@ function LeaveTablePage() {
     })
     return (
       <div className="table-responsive">
-        <table className='table table-dark table-bordered'>
+        {loading?
+        
+        <div className='d-flex flex-column'><img className='img-fluid' src={loadingImg}/><p className='text-center'>Please wait while Loading...</p></div>
+        
+        :<table className='table table-dark table-bordered'>
           <thead>
             <tr>
             <th>Reg.no</th>
@@ -55,7 +63,7 @@ function LeaveTablePage() {
           <tbody>
             {requests}
           </tbody>
-        </table>
+        </table>}
       </div>
     )
   }

@@ -1,21 +1,25 @@
 import React from 'react'
 import { getAllStudent, getStudentBySkill } from '../../../Api/StudentApi'
 import { useNavigate } from 'react-router-dom'
+import loadingImg from '../../../Common/Loading.gif'
 //
 function MetaInfoCard() {
 
   const [metaInfo,setMetaInfo]=React.useState([])
+  const [loading, setLoading] = React.useState(true);
   const navigator=useNavigate()
   const [recieved,setRecieved]=React.useState(null)
   const [skill,setSkills]=React.useState('')
   React.useEffect(
     ()=>{
       getAllStudent().then(
-        res=>setMetaInfo(res.data)
+        res=>{setMetaInfo(res.data)
+        setLoading(false)}
       ).catch(err=>{alert('You are Not Authorized')
         navigator('/')
         localStorage.removeItem('token')
         localStorage.removeItem('currentUser')
+        setLoading(false)
     })
     },[]
   )
@@ -55,8 +59,9 @@ function MetaInfoCard() {
         setSkills('')}} className="btn  btn-secondary">clear</button>}
       <input value={skill} onChange={(event)=>setSkills(event.target.value)} className='w-50 ms-3 form-control' placeholder='Search By Skill' type="text" />
     </div>
+    
     <p className='my-3 fw-bolder'>Total Students : <span className='fw-medium'>{metaCards.length}</span></p>
-    {metaCards}
+    {metaCards}{loading&&<div className='d-flex flex-column'><img className='img-fluid' src={loadingImg}/><p className='text-center'>Please wait while Loading...</p></div>}
     </>
   )
 }

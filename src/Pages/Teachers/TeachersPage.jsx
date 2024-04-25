@@ -25,6 +25,7 @@ function Teachers() {
               <ConcMark />
               <button data-bs-toggle='modal' data-bs-target='#markRep' className="btn btn-warning d-block mb-2">+ Assign Rep</button>
               <RepMark />
+              <button className='btn btn-dark' onClick={()=>navigator('/absent')}>Attendance</button>
           </div>
           <img style={{width:'130px',height:'130px'}} className='img-fluid' src={Prithivi} alt="" />
       </div>

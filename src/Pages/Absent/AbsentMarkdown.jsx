@@ -3,10 +3,12 @@ import { getAllStudent, sendAbsent, sendOnDuty } from '../../Api/StudentApi';
 import AbsentByDateModal from './Modals/AbsentByDateModal';
 import AbsentByHour from './Modals/AbsentByHour';
 import { useNavigate } from 'react-router-dom';
+import loadingImg from '../../Common/Loading.gif'
 
 function AbsentMarkdown() {
     const studentsNumbers = [];
     const [metaInfo,setMetaInfo]=React.useState([])
+    const [loading,setLoading]=React.useState(true)
     const [selectedAbsent, setSelectedAbsent] = React.useState(new Set());
     const [selectedOnDuty, setSelectedOnDuty] = React.useState(new Set());
     const [outGoingAbsent,setOutGoingAbsent]=React.useState({
@@ -19,11 +21,15 @@ function AbsentMarkdown() {
     React.useEffect(
         ()=>{
           getAllStudent().then(
-            res=>setMetaInfo(res.data)
+            res=>{setMetaInfo(res.data)
+            setLoading(false)
+            }
+
           ).catch(err=>{alert('You are Not Authorized')
             navigator('/')
             localStorage.removeItem('token')
             localStorage.removeItem('currentUser')
+            setLoading(false)
         })
         },[]
       )
@@ -166,7 +172,7 @@ sortedMetaInfo.map((info) => {
                 
             </div>
             
-            {studentsNumbers}
+            {studentsNumbers}{loading&&<div className='d-flex flex-column'><img className='img-fluid' src={loadingImg}/><p className='text-center'>Please wait while Loading...</p></div>}
         </div>
     );
 }
