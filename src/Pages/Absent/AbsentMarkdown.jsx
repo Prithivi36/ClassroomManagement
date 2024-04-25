@@ -172,7 +172,7 @@ sortedMetaInfo.map((info) => {
                 
             </div>
             
-            {studentsNumbers}{loading&&<div className='d-flex flex-column'><img className='img-fluid' src={loadingImg}/><p className='text-center'>Please wait while Loading...</p></div>}
+            {studentsNumbers}{loading&&<div className='d-flex align-items-center flex-column'><img width={700} height={700} className='img-fluid' src={loadingImg}/><p className='text-center fw-bolder'>Please wait while Loading...</p></div>}
         </div>
     );
 }
