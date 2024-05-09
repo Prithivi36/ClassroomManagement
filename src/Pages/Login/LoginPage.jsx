@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { loginStudent } from '../../Api/StudentApi'
 import vite from '../../../public/vite.svg'
+import background from './Background.jpeg'
 
 
 function Login() {
@@ -49,7 +50,11 @@ React.useEffect(
     {
       //Navigation
     }
-    <button onClick={toggleNav} className="btn btn-dark rounded-circle m-3">
+    
+
+    <div style={{height:'100vh',position:'relative', backgroundImage:`url(${background})`}} className='d-flex justify-content-center align-items-center'>
+      <div style={{position:'absolute',top:'0',left:'0'}} className="">
+      <button onClick={toggleNav} className="btn btn-dark rounded-circle m-3">
     <i className="bi bi-three-dots-vertical"></i>
     </button>
     {nav?<div className=" d-flex text-dark">
@@ -70,9 +75,8 @@ React.useEffect(
           <p>Rep</p>
         </div>
     </div>:''}
-
-    <div style={{height:'100vh'}} className='d-flex justify-content-center align-items-center'>
-      <div className="card px-3 py-4">
+      </div>
+      <div  className="card  shadow-lg p-md-5 px-3 py-4">
         <div className="d-flex align-items-center justify-content-center">
           <img src={vite} alt="" />
           <h3 className="text-center ms-2 my-3 fw-bolder">VCR</h3>
