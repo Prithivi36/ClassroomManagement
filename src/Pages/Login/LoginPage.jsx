@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { loginStudent } from '../../Api/StudentApi'
 import vite from '../../../public/vite.svg'
-import background from './Background.jpeg'
 
 
 function Login() {
@@ -52,7 +51,7 @@ React.useEffect(
     }
     
 
-    <div style={{height:'100vh',position:'relative', backgroundImage:`url(${background})`}} className='d-flex justify-content-center align-items-center'>
+    <div style={{height:'100vh',position:'relative'}} className='d-flex justify-content-center align-items-center'>
       <div style={{position:'absolute',top:'0',left:'0'}} className="">
       <button onClick={toggleNav} className="btn btn-dark rounded-circle m-3">
     <i className="bi bi-three-dots-vertical"></i>
