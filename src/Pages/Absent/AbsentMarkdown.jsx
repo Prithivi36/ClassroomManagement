@@ -132,7 +132,8 @@ sortedMetaInfo.map((info) => {
 
 
     return (
-        <div className='card p-5 m-2'>
+        <>
+        <div  className='card p-5 m-2'>
             <div className="row justify-content-around">
                 <div className=" col-md-2 mb-3">
                     <p className='fw-bolder p-2 mb-2'>Tools</p>
@@ -145,9 +146,12 @@ sortedMetaInfo.map((info) => {
                     <i className="bi bi-clock-fill  ms-2"></i>
                     </button>
                     <AbsentByHour />
-                    <button onClick={handleParent} className="btn me-3 mt-2 btn-info text-light">Notify Parent
-                        <i className="bi bi-whatsapp  ms-2"></i>
-                    </button>
+                    <div style={{position:'relative'}} className="notify-btn">
+                        <button  onClick={handleParent} className="btn me-3 notify-btn mt-2 btn-info text-light">Notify Parent
+                            <i className="bi bi-whatsapp  ms-2"></i>
+                        </button>
+                            <p  className=' tool-tip py-2 d-block text-light rounded-5 px-3' >This only sends the absentees to parent if you have onDuty on your list after sending this click submit again</p>
+                    </div>
                     
                 </div>
                 <div className="row col justify-content-center">
@@ -184,6 +188,9 @@ sortedMetaInfo.map((info) => {
             
             {studentsNumbers}{loading&&<div className='d-flex align-items-center flex-column'><img width={700} height={700} className='img-fluid' src={loadingImg}/><p className='text-center fw-bolder'>Please wait while Loading...</p></div>}
         </div>
+        
+        </>
+        
     );
 }
 

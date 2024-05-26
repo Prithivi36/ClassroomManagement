@@ -8,3 +8,15 @@
     opacity: 1;
   }
   
+  .tool-tip{
+    position: absolute;
+    top:'10';
+    right:'0';
+    z-index:10;
+    background-color: rgb(39, 39, 39);
+    transition: all .5s;
+    opacity: 0;
+  }
+  .notify-btn:hover .tool-tip{
+    opacity: 1;
+  }
