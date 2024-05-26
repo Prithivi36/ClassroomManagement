@@ -7,6 +7,7 @@ import loadingImg from '../../Common/Loading.gif'
 
 function AbsentMarkdown() {
     const studentsNumbers = [];
+    const [sending,setSending]=React.useState(false)
     const [metaInfo,setMetaInfo]=React.useState([])
     const [loading,setLoading]=React.useState(true)
     const [selectedAbsent, setSelectedAbsent] = React.useState(new Set());
@@ -56,7 +57,6 @@ function AbsentMarkdown() {
         },[selectedAbsent,selectedOnDuty]
     )
     
-
     function setselectedStudent(student,list,setList){
         setList((prev)=>{
             const updatedList=new Set(prev)
@@ -66,12 +66,8 @@ function AbsentMarkdown() {
                 updatedList.add(student)
             }
             return updatedList
-        }
-        
-        )
-        
+        } )
     }
-
     function isSelected(student,type){
         return type==='absent'?selectedAbsent.has(student):
         selectedOnDuty.has(student)
@@ -101,35 +97,17 @@ sortedMetaInfo.map((info) => {
     );
 });
 
-    // metaInfo.map((info)=>{
-    //     const i=info.regNo
-    //     studentsNumbers.push(
-    //         <div
-    //             key={i}
-    //             className={`card p-3 mt-2 ${isSelected(i,'absent') ? 'bg-success text-light' :isSelected(i,'onDuty')? 'bg-primary text-light':'text-dark' }`}
-    //         >
-    //             {i}
-    //             <div className="">
-    //             <button onClick={()=>setselectedStudent(i,selectedAbsent,setSelectedAbsent)} className="btn me-2 mt-2 btn-sm btn-warning">
-    //                 Absent
-    //             </button>
-    //             <button onClick={()=>setselectedStudent(i,selectedOnDuty,setSelectedOnDuty)} className="btn btn-sm mt-2 btn-warning">
-    //                 OnDuty
-    //             </button>
-    //             </div>
-    //        </div>
-    //     );
-    // })
 
     function handleParent(){
+        setSending(true)
         sendMessage(outGoingAbsent).then(
-            res=>alert(res.data)
-        )
-    }
-    
+            res=>{alert(res.data)
+            setSending(false)}
+        ).catch(err=>{alert("Something Went Wrong")
+            setSending(false)
+        })
         
-    
-
+    }
 
     return (
         <>
@@ -147,7 +125,7 @@ sortedMetaInfo.map((info) => {
                     </button>
                     <AbsentByHour />
                     <div style={{position:'relative'}} className="notify-btn">
-                        <button  onClick={handleParent} className="btn me-3 notify-btn mt-2 btn-info text-light">Notify Parent
+                        <button  onClick={handleParent} className={`btn me-3 notify-btn mt-2 btn-info text-light ${sending?"disabled":''}`}>Notify Parent
                             <i className="bi bi-whatsapp  ms-2"></i>
                         </button>
                             <p  className=' tool-tip py-2 d-block text-light rounded-5 px-3' >This only sends the absentees to parent if you have onDuty on your list after sending this click submit again</p>
