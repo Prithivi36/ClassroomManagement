@@ -2,8 +2,8 @@ import axios from "axios";
 
 
 // export const Baseurl="https://jlrb0yk4t8.execute-api.ap-south-1.amazonaws.com/VCR-Stage/"
-// export const Baseurl="http://65.0.7.62:8080/"
-export const Baseurl="http://localhost:8080/"
+export const Baseurl="http://65.0.7.62:8080/"
+// export const Baseurl="http://localhost:8080/"
 
 
 
