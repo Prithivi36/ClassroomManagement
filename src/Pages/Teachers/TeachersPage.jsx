@@ -25,13 +25,12 @@ function Teachers() {
               <ConcMark />
               <button data-bs-toggle='modal' data-bs-target='#markRep' className="btn btn-warning d-block mb-2">+ Assign Rep</button>
               <RepMark />
-              <button className='btn btn-dark' onClick={()=>navigator('/absent')}>Attendance</button>
+              <button className='btn btn-dark d-block mb-2' onClick={()=>navigator('/absent')}>Attendance</button>
+              <button onClick={()=>navigator('/reset')} className="btn btn-secondary rounded-5 d-block mb-2">Reset Password</button>
           </div>
           <img style={{width:'130px',height:'130px'}} className='img-fluid' src={Prithivi} alt="" />
       </div>
-
       <div className="container mt-3 g-4">
-        
         <MetaInfoCard />
       </div>
   </div>

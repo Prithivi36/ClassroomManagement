@@ -120,3 +120,6 @@ export function registerRep(userDetails){
 export function resetPassword(resetInfo){
     return axios.post(Baseurl+'reset',resetInfo)
 }
+export function sendMessage(outlist){
+    return axios.post(Baseurl+'message',outlist)
+}

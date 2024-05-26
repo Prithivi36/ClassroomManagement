@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllStudent, sendAbsent, sendOnDuty } from '../../Api/StudentApi';
+import { getAllStudent, sendAbsent, sendMessage, sendOnDuty } from '../../Api/StudentApi';
 import AbsentByDateModal from './Modals/AbsentByDateModal';
 import AbsentByHour from './Modals/AbsentByHour';
 import { useNavigate } from 'react-router-dom';
@@ -81,12 +81,14 @@ const sortedMetaInfo = [...metaInfo].sort((a, b) => a.regNo - b.regNo);
 
 sortedMetaInfo.map((info) => {
     const i = info.regNo;
+    const j=info.studentName;
     studentsNumbers.push(
         <div
             key={i}
             className={`card p-3 mt-2 ${isSelected(i,'absent') ? 'bg-success text-light' : isSelected(i,'onDuty') ? 'bg-primary text-light' : 'text-dark'}`}
-        >
-            {i}
+            >
+             <h6>{j}</h6>
+             {i }
             <div className="">
                 <button onClick={() => setselectedStudent(i, selectedAbsent, setSelectedAbsent)} className="btn me-2 mt-2 btn-sm btn-warning">
                     Absent
@@ -119,6 +121,11 @@ sortedMetaInfo.map((info) => {
     //     );
     // })
 
+    function handleParent(){
+        sendMessage(outGoingAbsent).then(
+            res=>alert(res.data)
+        )
+    }
     
         
     
@@ -138,6 +145,9 @@ sortedMetaInfo.map((info) => {
                     <i className="bi bi-clock-fill  ms-2"></i>
                     </button>
                     <AbsentByHour />
+                    <button onClick={handleParent} className="btn me-3 mt-2 btn-info text-light">Notify Parent
+                        <i className="bi bi-whatsapp  ms-2"></i>
+                    </button>
                     
                 </div>
                 <div className="row col justify-content-center">
