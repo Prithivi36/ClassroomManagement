@@ -10,6 +10,7 @@ import RegisterPage from "./Pages/Register/RegisterPage.jsx"
 import LoginCred from "./Pages/credential/LoginCred.jsx"
 import Admin from "./Pages/Admin/Admin.jsx"
 import AdminRedirect from "./Pages/Admin/AdminRedirect.jsx"
+import ResetPass from "./ResetPassword/ResetPass.jsx"
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
             <Route path={'/classroom/:semester/:sub'} element={<Classroom />} />
             <Route path={'/absent'} element={<AbsentMarkdown />} />
             <Route path={'/allRequests'} element={<LeaveTablePage />} />
+            <Route path="/reset" element={<ResetPass/>} />
         </Routes>
     </HashRouter>
     </>

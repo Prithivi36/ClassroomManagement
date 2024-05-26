@@ -24,11 +24,12 @@ function AllDetails() {
     return (
 
     <div className="container p-3 mt-5">
-        <button data-bs-toggle='modal' data-bs-target='#Concerns' className="btn btn-danger me-2 my-1 btn-sm">Concerns</button>
-        <button data-bs-toggle='modal' data-bs-target='#leaveModal' className="btn btn-sm me-2 my-1 btn-primary">+ Permission</button>
-        <button data-bs-toggle='modal' data-bs-target='#StatusCheck'  className="btn btn-sm me-2 my-1 btn-success">Check Status</button>
-        <button data-bs-toggle='modal' data-bs-target='#SkillsAdd' className="btn btn-sm me-2 my-1 btn-warning">+ Skills</button>
-        <button onClick={()=>navigator('/classroom')} className="btn btn-sm btn-secondary">Classroom</button>
+        <button data-bs-toggle='modal' data-bs-target='#Concerns' className="btn btn-danger me-2 my-1 btn-sm rounded-5">Concerns</button>
+        <button data-bs-toggle='modal' data-bs-target='#leaveModal' className="btn btn-sm me-2 my-1 btn-primary rounded-5">+ Permission</button>
+        <button data-bs-toggle='modal' data-bs-target='#StatusCheck'  className="btn btn-sm me-2 my-1 btn-success rounded-5">Check Status</button>
+        <button data-bs-toggle='modal' data-bs-target='#SkillsAdd' className="btn btn-sm me-2 my-1 btn-warning rounded-5">+ Skills</button>
+        <button onClick={()=>navigator('/classroom')} className="btn me-2 my-1 btn-sm btn-secondary rounded-5">Classroom</button>
+        <button onClick={()=>navigator('/reset')} className="btn btn-sm me-2 my-1 btn-dark rounded-5">Reset Password</button>
         <ConcernModal merit={selectedStudent.studentConcern}  />
         <LeaveModal />
         <StatusModal request={selectedStudent.leaveOrOdRequests} />

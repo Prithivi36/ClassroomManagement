@@ -2,8 +2,8 @@ import axios from "axios";
 
 
 // export const Baseurl="https://jlrb0yk4t8.execute-api.ap-south-1.amazonaws.com/VCR-Stage/"
-export const Baseurl="http://65.0.7.62:8080/"
-// export const Baseurl="http://localhost:8080/"
+// export const Baseurl="http://65.0.7.62:8080/"
+export const Baseurl="http://localhost:8080/"
 
 
 
@@ -100,13 +100,11 @@ export function loginStudent(studentInfo ,roles){
     axios.post(Baseurl+'auth/get',studentInfo)
     .then(res=>{
         localStorage.setItem('token',"Bearer "+res.data)
+        localStorage.setItem('currentUser', JSON.stringify({ username: studentInfo.username, roleInfo: roles?roles:'student' }))
         roles==='absent'?location.href='/#/absent':
         roles==='admin'?location.href='/#/adminPanel':
-        setTimeout(
-            ()=>{roles==='teachers'?location.href='/#/teachers/'+studentInfo.username:location.href='/#/student/'+studentInfo.username,
-            5000
-        }
-            )
+        roles==='teachers'?location.href='/#/teachers/'+studentInfo.username:location.href='/#/student/'+studentInfo.username
+
     }).catch(
         err=>alert(err.response.data.message||'Invalid Password')
     )
@@ -117,4 +115,8 @@ export function registerteacher(userDetails){
 }
 export function registerRep(userDetails){
     return axios.put(Baseurl+'auth/register/rep/'+userDetails)
+}
+
+export function resetPassword(resetInfo){
+    return axios.post(Baseurl+'reset',resetInfo)
 }

@@ -25,7 +25,7 @@ React.useEffect(
 
  function handleSubmit(){
     loginStudent(currentUser,role)
-    localStorage.setItem('currentUser', JSON.stringify({ username: currentUser.username, roleInfo: role?role:'student' }))    
+
  }
  //formData
  function handleChange(event){
