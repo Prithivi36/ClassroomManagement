@@ -43,7 +43,8 @@ function LeaveTablePage() {
       )
     })
     return (
-      <div className="table-responsive">
+      <div style={{minHeight:'100vh'}} className="table-responsive bg-black">
+        <h5 className="fw-bolder text-light text-center py-3">Reuests Recieved</h5>
         {loading?
         
         <div className='d-flex align-items-center flex-column'><img width={700} height={700} className='img-fluid' src={loadingImg}/><p className='text-center fw-bolder'>Please wait while Loading...</p></div>

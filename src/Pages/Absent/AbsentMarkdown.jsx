@@ -3,7 +3,7 @@ import { getAllStudent, sendAbsent, sendMessage, sendOnDuty } from '../../Api/St
 import AbsentByDateModal from './Modals/AbsentByDateModal';
 import AbsentByHour from './Modals/AbsentByHour';
 import { useNavigate } from 'react-router-dom';
-import loadingImg from '../../Common/Loading.gif'
+import loadingImg from '../../Common/Loadin.gif'
 
 function AbsentMarkdown() {
     const studentsNumbers = [];
@@ -81,10 +81,10 @@ sortedMetaInfo.map((info) => {
     studentsNumbers.push(
         <div
             key={i}
-            className={`card p-3 mt-2 ${isSelected(i,'absent') ? 'bg-success text-light' : isSelected(i,'onDuty') ? 'bg-primary text-light' : 'text-dark'}`}
+            className={`card  text-light p-3 mt-2 ${isSelected(i,'absent') ? 'bg-success' : isSelected(i,'onDuty') ? 'bg-primary' : 'bg-dark'}`}
             >
-             <h6>{j}</h6>
-             {i }
+             <h6 className='text-light'>{j}</h6>
+             <p className='text-light'>{i}</p>
             <div className="">
                 <button onClick={() => setselectedStudent(i, selectedAbsent, setSelectedAbsent)} className="btn me-2 mt-2 btn-sm btn-warning">
                     Absent
@@ -102,6 +102,7 @@ sortedMetaInfo.map((info) => {
         setSending(true)
         sendMessage(outGoingAbsent).then(
             res=>{alert(res.data)
+                sendList()
             setSending(false)}
         ).catch(err=>{alert("Something Went Wrong")
             setSending(false)
@@ -111,7 +112,7 @@ sortedMetaInfo.map((info) => {
 
     return (
         <>
-        <div  className='card p-5 m-2'>
+        <div style={{minHeight:'100vh'}}  className=' bg-black text-light p-5'>
             <div className="row justify-content-around">
                 <div className=" col-md-2 mb-3">
                     <p className='fw-bolder p-2 mb-2'>Tools</p>
@@ -128,12 +129,11 @@ sortedMetaInfo.map((info) => {
                         <button  onClick={handleParent} className={`btn me-3 notify-btn mt-2 btn-info text-light ${sending?"disabled":''}`}>Notify Parent
                             <i className="bi bi-whatsapp  ms-2"></i>
                         </button>
-                            <p  className=' tool-tip py-2 d-block text-light rounded-5 px-3' >This only sends the absentees to parent if you have onDuty on your list after sending this click submit again</p>
                     </div>
                     
                 </div>
                 <div className="row col justify-content-center">
-                    <div className="card col-md-4 me-md-2 mb-3">
+                    <div className="card bg-dark text-light col-md-4 me-md-2 mb-3">
                         <p className='fw-bolder p-2 mb-2'>Selected Absent</p>
                         <div className="p-3">
                             {[...selectedAbsent].map((student, index) => (
@@ -144,7 +144,7 @@ sortedMetaInfo.map((info) => {
                             ))}
                         </div>
                     </div>
-                    <div className="card col-md-4 mb-3">
+                    <div className="card bg-dark text-light col-md-4 mb-3">
                     <p className='fw-bolder p-2 mb-2'>Student on Duty</p>
                     <div className="p-3">
                         {[...selectedOnDuty].map((student, index) => (
@@ -164,7 +164,7 @@ sortedMetaInfo.map((info) => {
                 
             </div>
             
-            {studentsNumbers}{loading&&<div className='d-flex align-items-center flex-column'><img width={700} height={700} className='img-fluid' src={loadingImg}/><p className='text-center fw-bolder'>Please wait while Loading...</p></div>}
+            {studentsNumbers}{loading&&<div className='d-flex align-items-center flex-column'><img style={{objectFit:'cover',width: '200px',height:'200px'}}  className='img-fluid rounded-circle' src={loadingImg}/><p className='text-center fw-bolder'>Please wait while Loading...</p></div>}
         </div>
         
         </>

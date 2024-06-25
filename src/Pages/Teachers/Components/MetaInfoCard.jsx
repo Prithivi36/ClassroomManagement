@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAllStudent, getStudentBySkill } from '../../../Api/StudentApi'
 import { useNavigate } from 'react-router-dom'
-import loadingImg from '../../../Common/Loading.gif'
+import loadingImg from '../../../Common/Loadin.gif'
 //
 function MetaInfoCard() {
 
@@ -34,7 +34,7 @@ function MetaInfoCard() {
   
   const metaCards=(recieved||sortedMetaInfo).map((info)=>{
     return(
-      <div key={info.id} onClick={()=>navigator('/student/'+info.regNo)} className="card flex-row mb-2 px-3 py-3">
+      <div key={info.id} onClick={()=>navigator('/student/'+info.regNo)} className="card bg-dark text-light flex-row mb-2 px-3 py-3">
         <table>
           <tbody>
             <tr>
@@ -61,7 +61,7 @@ function MetaInfoCard() {
     </div>
     
     <p className='my-3 fw-bolder'>Total Students : <span className='fw-medium'>{metaCards.length}</span></p>
-    {metaCards}{loading&&<div className='d-flex align-items-center flex-column'><img width={700} height={700} className='img-fluid' src={loadingImg}/><p className='text-center fw-bolder'>Please wait while Loading...</p></div>}
+    {metaCards}{loading&&<div className='d-flex align-items-center flex-column'><img style={{objectFit:'cover',width: '200px',height:'200px'}}  className='img-fluid rounded-circle' src={loadingImg}/><p className='text-center fw-bolder'>Please wait while Loading...</p></div>}
     </>
   )
 }

@@ -11,9 +11,9 @@ function Teachers() {
   const {id}=useParams()
   return (
     
-  <div className="d-sm-flex justify-content-around">
+  <div style={{minHeight:'100vh'}} className="d-sm-flex bg-black text-light justify-content-around">
 
-    <div className="card flex-row justify-content-around px-4 m-4 py-5">
+    <div className="card bg-dark text-light flex-row justify-content-around px-4 m-4 py-5">
           <div className="">
               <h2 className='fw-bolder'> Logged in as {id}</h2>
               <p>Faculty login</p>
@@ -25,7 +25,7 @@ function Teachers() {
               <ConcMark />
               <button data-bs-toggle='modal' data-bs-target='#markRep' className="btn btn-warning d-block mb-2">+ Assign Rep</button>
               <RepMark />
-              <button className='btn btn-dark d-block mb-2' onClick={()=>navigator('/absent')}>Attendance</button>
+              <button className='btn btn-light d-block mb-2' onClick={()=>navigator('/absent')}>Attendance</button>
               <button onClick={()=>navigator('/reset')} className="btn btn-secondary rounded-5 d-block mb-2">Reset Password</button>
           </div>
           <img style={{width:'130px',height:'130px'}} className='img-fluid' src={Prithivi} alt="" />
