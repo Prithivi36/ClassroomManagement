@@ -11,9 +11,9 @@ function Teachers() {
   const {id}=useParams()
   return (
     
-  <div style={{minHeight:'100vh'}} className="d-sm-flex bg-black text-light justify-content-around">
+  <div style={{minHeight:'100vh'}} className="d-sm-flex bg-black text-light pt-4 justify-content-around">
 
-    <div className="card bg-dark text-light flex-row justify-content-around px-4 m-4 py-5">
+    <div className="card bg-dark text-light flex-row justify-content-around px-4 m-4 rounded-5 mt-0 py-5">
           <div className="">
               <h2 className='fw-bolder'> Logged in as {id}</h2>
               <p>Faculty login</p>
