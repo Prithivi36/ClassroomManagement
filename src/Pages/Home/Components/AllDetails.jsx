@@ -34,7 +34,8 @@ function AllDetails() {
         <LeaveModal />
         <StatusModal request={selectedStudent.leaveOrOdRequests} />
         <SkillsAddModal />
-        <div className="card p-3 p-md-5 mt-3">
+        <div className="card bg-dark rounded-5 p-3 p-md-5 mt-3 mb-5">
+            <h6 className='text-light mb-5 fw-bolder'>Parent Details:</h6>
             <PersonalDetail fatherNumber={selectedStudent.fatherNumber} motherNumber={selectedStudent.motherNumber} bloodGroup={selectedStudent.bloodGroup} cgpa={selectedStudent.cgpa} />
         </div>
     </div>

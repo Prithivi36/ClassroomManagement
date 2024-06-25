@@ -20,3 +20,7 @@
   .notify-btn:hover .tool-tip{
     opacity: 1;
   }
+  .btn-light-dark{
+    background-color: rgb(66, 66, 66);
+    color: white;
+  }

@@ -2,14 +2,14 @@ import React from 'react'
 
 function RegularInfo(props) {
   return (
-    <table style={{overflow:'hidden'}} className='table rounded-3 table-bordered '>
-        <thead className='table-dark'>
-            <tr>
+    <table style={{overflow:'hidden'}} className='table rounded-2 table-bordered '>
+        <thead className='table-primary'>
+            <tr className='fw-bolder'>
                 <td>Fields</td>
                 <td>Details</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody className='table-dark'>
             <tr>
                 <td>Name</td>
                 <td>{props.name}</td>

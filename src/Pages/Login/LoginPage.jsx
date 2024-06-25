@@ -51,12 +51,12 @@ React.useEffect(
     }
     
 
-    <div style={{height:'100vh',position:'relative'}} className='d-flex justify-content-center align-items-center'>
+    <div style={{height:'100vh',position:'relative'}} className='d-flex flex-column gap-4 bg-black justify-content-center align-items-center'>
       <div style={{position:'absolute',top:'0',left:'0'}} className="">
       <button onClick={toggleNav} className="btn btn-dark rounded-circle m-3">
     <i className="bi bi-three-dots-vertical"></i>
     </button>
-    {nav?<div className=" d-flex text-dark">
+    {nav?<div className=" d-flex text-light">
         <div onClick={()=>navigator('/login/teachers')} className=" ms-3 d-flex flex-column justify-content-center align-items-center">
           <i className="bi bi-people-fill"></i>
           <p>Faculty</p>
@@ -75,7 +75,7 @@ React.useEffect(
         </div>
     </div>:''}
       </div>
-      <div  className="card  shadow-lg p-md-5 px-3 py-4">
+      <div  className="card rounded-5 bg-dark text-light  shadow-lg p-md-5 px-5 py-4">
         <div className="d-flex align-items-center justify-content-center">
           <img src={vite} alt="" />
           <h3 className="text-center ms-2 my-3 fw-bolder">VCR</h3>
@@ -84,12 +84,13 @@ React.useEffect(
         <label htmlFor="name" className='fw-medium'>{role==='teachers'?'Teacher ID':'Student Reg. No'}</label>
         <input placeholder='Enter Register number' name='username' onChange={handleChange} id='name' className='form-control' type="text" />
         <label htmlFor="password" className='fw-medium mt-4'>Password</label>
-        <input placeholder='Enter password'  name='password' onChange={handleChange} id='password' className='form-control'  type="password" />
+        <input placeholder='Enter password'  name='password' onChange={handleChange} id='password' className='form-control mb-4'  type="password" />
 
-        {role==='teachers'?'':
-          <p style={{cursor:'pointer'}} onClick={()=>navigator('/register')} className='text-primary fw-light mt-3'>New here?, Click to register</p>}
-
-        <button  onClick={handleSubmit} className='btn btn-primary mt-4'>Login</button>
+        <button  onClick={handleSubmit} className='btn btn-primary my-4'>Login</button>
+      </div>
+      <div className="card bg-dark rounded-4">
+      {role==='teachers'?'':
+            <p style={{cursor:'pointer'}} onClick={()=>navigator('/register')} className='text-light px-4 fw-light mt-3'>New here?, Click to register <button className='btn btn-primary btn-sm rounded-3'>Sign up</button></p>}
       </div>
     </div>
     </>
