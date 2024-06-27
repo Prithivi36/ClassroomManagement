@@ -11,6 +11,7 @@ import LoginCred from "./Pages/credential/LoginCred.jsx"
 import Admin from "./Pages/Admin/Admin.jsx"
 import AdminRedirect from "./Pages/Admin/AdminRedirect.jsx"
 import ResetPass from "./ResetPassword/ResetPass.jsx"
+import Landing from "./Pages/Landing/Landing.jsx"
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
       <HashRouter  >
           <Navbar getUser={localStorage.getItem('currentUser')} />
         <Routes>
-            <Route path='/' element={<Login />} />
+            <Route path='/log' element={<Login />} />
             <Route path='/credentials' element={<LoginCred />} />
             <Route path='/admin' element={<AdminRedirect />} />
             <Route path='/adminPanel' element={<Admin />} />
@@ -33,6 +34,7 @@ function App() {
             <Route path={'/absent'} element={<AbsentMarkdown />} />
             <Route path={'/allRequests'} element={<LeaveTablePage />} />
             <Route path="/reset" element={<ResetPass/>} />
+            <Route path="/" element={<Landing/>} />
         </Routes>
     </HashRouter>
     </>

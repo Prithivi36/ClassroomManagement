@@ -24,3 +24,35 @@
     background-color: rgb(66, 66, 66);
     color: white;
   }
+
+
+.description {
+  font-size: 1.1rem;
+  color: #d6d6d6;
+  text-align: justify;
+}
+
+.card-img-top{
+  object-fit: contain;
+  max-height: 300px;
+}
+.carousel-control-prev-icon
+ {
+  opacity: 0.2;
+  left: 0;
+  position: absolute;
+}
+.carousel-control-next-icon{
+  opacity: 0.2;
+  right: 0;
+  position: absolute;
+}
+.carousel-indicators{
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+}
+.heading{
+  font-size: 50px;
+  color: rgb(153, 105, 197);
+}
