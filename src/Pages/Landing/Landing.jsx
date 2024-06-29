@@ -37,8 +37,8 @@ function Landing() {
           <p className="description">
             Our Virtual Classroom project revolutionizes traditional student management systems by providing an extensive web-based platform. The platform is tailored to meet the intricate demands of academic environments, addressing challenges in student profile management, communication, and administrative tasks with efficiency, security, and user-centric design.
           </p>
-          <button onClick={()=>navigator('/login/teachers')} className="btn btn-outline-primary mt-5">Login as Teacher</button>
-          <button onClick={()=>navigator('/log')} className="btn btn-outline-success ms-4 mt-5">Login as Student</button>
+          <button onClick={()=>navigator('/login/teachers')} className="btn btn-outline-primary me-4 mt-5">Login as Teacher</button>
+          <button onClick={()=>navigator('/log')} className="btn btn-outline-success  mt-5">Login as Student</button>
         </div>
       </div>
 
